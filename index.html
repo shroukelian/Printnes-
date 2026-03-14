@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنتس للطباعة والمطبوعات | الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+
+    <!-- الهيدر المطور المظبوط -->
+    <header class="main-header">
+        <div class="container header-content">
+
+            <!-- الجزء الأيمن: اللوجو والاسم والأيقونة -->
+            <div class="brand-area">
+                <div class="logo-and-text" onclick="location.reload()">
+                    <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
+                        class="logo-img">
+                    <div class="brand-text">
+                        <h1>Printnes</h1>
+                        <span>للطباعة والمطبوعات</span>
+                    </div>
+                </div>
+
+                <!-- زر المنيو (الثلاث شرطات) مكانه الآن على يسار الاسم -->
+                <button class="menu-toggle-btn" onclick="openSideMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- شريط البحث في المنتصف -->
+            <div class="search-wrapper">
+                <input type="text" placeholder="ادخل كلمة البحث">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- أيقونات المستخدم والسلة في اليسار -->
+            <div class="user-nav">
+                <!-- ابحثي عن هذا السطر في الهيدر وعدليه -->
+                <div class="nav-item" onclick="openLoginModal()">
+                    <i class="far fa-user"></i>
+                    <span>تسجيل الدخول</span>
+                </div>
+                <div class="nav-item cart" onclick="openFullCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- تنبيه الإضافة للسلة (Cart Toast) -->
+    <div id="cart-toast" class="cart-toast-container hidden">
+        <div class="toast-progress"></div>
+        <div class="toast-header">
+            <span class="status-icon"><i class="fas fa-check-circle"></i> تمت الإضافة إلى سلة التسوق</span>
+            <span class="close-toast" onclick="hideToast()">&times;</span>
+        </div>
+        <div class="toast-body">
+            <img id="toast-product-img" src="" alt="">
+            <div class="toast-info">
+                <h4 id="toast-product-name">اسم المنتج</h4>
+                <span class="toast-price"><span id="toast-product-price">0</span> ر.س</span>
+            </div>
+        </div>
+        <div class="toast-footer">
+            <button class="btn-white-toast" onclick="location.href='cart.html'"><i class="fas fa-shopping-bag"></i> عرض
+                السلة</button>
+            <button class="btn-orange-toast" onclick="checkoutFullCart()"><i class="fas fa-check"></i> اتمام
+                الطلب</button>
+        </div>
+    </div>
+    <!-- الغطاء الشفاف خلف المنيو -->
+    <div id="menu-overlay" class="menu-overlay hidden" onclick="closeSideMenu()"></div>
+
+    <!-- القائمة الجانبية المنسدلة -->
+    <aside id="side-menu" class="side-menu shadow-lg">
+        <div class="menu-header">
+            <div class="brand-small">
+                <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes">
+                <span>برنتس</span>
+            </div>
+            <button class="close-menu-btn" onclick="closeSideMenu()">&times;</button>
+        </div>
+
+        <div class="menu-body">
+            <ul class="main-nav-list">
+                <li><a href="#">المدونة</a></li>
+                <li><a href="#">كل المنتجات</a></li>
+                <li><a href="#">عروض البكجات</a></li>
+
+                <!-- قسم يحتوي على قائمة فرعية (مثل مطبوعات ورقية) -->
+                <li class="has-submenu">
+                    <div class="menu-item-flex" onclick="toggleSubMenu(this)">
+                        <span>مطبوعات ورقية</span>
+                        <i class="fas fa-chevron-left arrow"></i>
+                    </div>
+                    <ul class="submenu-list">
+                        <li><a href="#">ملف</a></li>
+                        <li><a href="#">مخططات هندسية</a></li>
+                        <li><a href="#">أظرف كروت</a></li>
+                        <li><a href="#">كروت شخصية</a></li>
+                        <li><a href="#">تاقات</a></li>
+                        <li><a href="#">أظرف مراسلات</a></li>
+                        <li><a href="#">ورق تقديم الطعام</a></li>
+                        <li><a href="#">قائمة الطعام MENU</a></li>
+                        <li><a href="#">بروشور</a></li>
+                        <li><a href="#">فلاير</a></li>
+                        <li><a href="#">شهادات شكر</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <div class="menu-item-flex" onclick="toggleSubMenu(this)">
+                        <span>طباعة على البوكسات</span>
+                        <i class="fas fa-chevron-left arrow"></i>
+                    </div>
+                    <ul class="submenu-list">
+                        <li><a href="#">بوكس شحن</a></li>
+                        <li><a href="#">بوكسات هدايا</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">طباعة على الأكياس</a></li>
+                <li><a href="#">بطاقات الشكر والاهداء</a></li>
+                <li><a href="#">التغليف والتعبئة</a></li>
+                <li><a href="#">خدمات التصميم</a></li>
+            </ul>
+        </div>
+    </aside>
+    <main class="container">
+        <!-- البنر الرئيسي -->
+        <section class="hero-banner">
+            <div class="banner-inner">
+                <div class="banner-info">
+                    <h2>مطبوعاتك.. <br><span>بمكان واحد</span></h2>
+                    <p>جودة وتكلفة مناسبة وتوصيل لكافة أنحاء المملكة والخليج</p>
+                    <button class="btn-main" onclick="scrollToSection('products-area')">اطلب الآن</button>
+                </div>
+                <div class="banner-photo">
+                    <img src="https://cdn.salla.sa/form-builder/wzsdRwVsUbNJVFVyQS6oTkganoSdKqnn1KADKYWk.png"
+                        alt="Hero Image">
+                </div>
+            </div>
+        </section>
+
+        <!-- الأقسام الرئيسية (الأيقونات الدائرية) -->
+        <section class="main-categories">
+            <div class="section-title-box">
+                <h2>الأقسام الرئيسية</h2>
+                <p>حرك القائمة لليسار لعرض جميع الأقسام</p>
+            </div>
+            <div class="categories-scroll">
+                <div class="cat-card" onclick="filterBy('بكجات')">
+                    <div class="circle-img"><img
+                            src="https://cdn.salla.sa/form-builder/PD53rr1LUNb19Hj3je9ULKSfhYUGg0o3TOBdz1T7.png"></div>
+                    <h4>العروض والبكجات</h4>
+                </div>
+                <div class="cat-card" onclick="filterBy('بوكسات')">
+                    <div class="circle-img"><img
+                            src="https://cdn.salla.sa/form-builder/lnB9NCS8slVsu7xfA6j6Ka37ZIEGCnEu9de9JiR3.png"></div>
+                    <h4>طباعة بوكسات</h4>
+                </div>
+                <div class="cat-card" onclick="filterBy('ملصقات')">
+                    <div class="circle-img"><img
+                            src="https://cdn.salla.sa/form-builder/pIbiSL3zp7u4cSqnsrhMcq0D0fQPT2pVkcK72f6g.png"></div>
+                    <h4>طباعة الملصقات</h4>
+                </div>
+                <div class="cat-card" onclick="filterBy('أكياس')">
+                    <div class="circle-img"><img
+                            src="https://cdn.salla.sa/form-builder/iVj6NojrRm6YOmBH6CTKeHbUWUfrpoYsK3D8hqB9.png"></div>
+                    <h4>طباعة الأكياس</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- الأكثر مبيعاً - المنتجات -->
+        <section class="products-area" id="products-area">
+            <div class="area-header">
+                <h2>الأكثر مبيعاً</h2>
+                <a href="#">عرض الكل</a>
+            </div>
+            <div class="products-grid" id="products-render">
+                <!-- يتم توليدها بواسطة JS -->
+            </div>
+        </section>
+
+        <!-- 1. قسم البوكسات -->
+        <section class="product-group">
+            <div class="group-header"><h2>بوكسات</h2> <a href="#">عرض الكل</a></div>
+            <div class="products-grid" id="render-boxes"></div>
+        </section>
+
+        <!-- 2. قسم كراتين الشحن -->
+        <section class="product-group">
+            <div class="group-header"><h2>طباعة كراتين شحن</h2> <a href="#">عرض الكل</a></div>
+            <div class="products-grid" id="render-cartons"></div>
+        </section>
+
+        <!-- 3. قسم طباعة الأكياس -->
+        <section class="product-group">
+            <div class="group-header"><h2>طباعة على الأكياس</h2> <a href="#">عرض الكل</a></div>
+            <div class="products-grid" id="render-bags"></div>
+        </section>
+
+        <!-- 4. قسم التغليف والتعبئة -->
+        <section class="product-group">
+            <div class="group-header"><h2>التغليف والتعبئة</h2> <a href="#">عرض الكل</a></div>
+            <div class="products-grid" id="render-packaging"></div>
+        </section>
+        <!-- قسم الإحصائيات (لماذا برنتنس ؟!) -->
+        <section class="premium-stats">
+            <div class="container">
+                <div class="section-header-right">
+                    <h2 class="orange-line-title">لماذا برنتنس ؟!</h2>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-card-new">
+                        <div class="icon-circle-navy"><i class="far fa-user-circle"></i></div>
+                        <div class="stat-content">
+                            <span class="stat-num">+8000</span>
+                            <p class="stat-desc">عميل جرب منتجاتنا</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-new">
+                        <div class="icon-circle-navy"><i class="fas fa-location-arrow"></i></div>
+                        <div class="stat-content">
+                            <span class="stat-num">+500</span>
+                            <p class="stat-desc">شحنة دولية ناجحة</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-new">
+                        <div class="icon-circle-navy"><i class="far fa-envelope-open"></i></div>
+                        <div class="stat-content">
+                            <span class="stat-num">+160000</span>
+                            <p class="stat-desc">رسالة رددنا عليها</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-new">
+                        <div class="icon-circle-navy"><i class="fas fa-store-alt"></i></div>
+                        <div class="stat-content">
+                            <span class="stat-num">+700</span>
+                            <p class="stat-desc">متجر يستفيد شهرياً</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <!-- عنوان القسم -->
+                <div class="section-title-wrapper">
+                    <h2 class="orange-title">الأسئلة الشائعة</h2>
+                </div>
+
+                <!-- شبكة الأسئلة (8 أسئلة كما في الصور) -->
+                <div class="faq-grid">
+
+                    <!-- سؤال 1 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <div class="faq-btn"><i class="fas fa-plus"></i></div>
+                            <span>هل يمكنني تغيير طلبي الاضافة او التعديل ؟</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>نعم يمكنك الاضافة او التعديل في فترة اقصاها 24 ساعة ولكن بعد تنفيذ المنتج أو شحنه يجب طلب
+                                اضافتك في طلب جديد.</p>
+                        </div>
+                    </div>
+
+                    <!-- سؤال 2 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <div class="faq-btn"><i class="fas fa-plus"></i></div>
+                            <span>كيف يمكنني الطلب من الموقع ؟</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>يمكنك بكل سهولة اضافة جميع البيانات من خلال صفحة طلب المنتج وفي حال واجهت اي مشكلة
+                                بإمكانك التواصل معنا من خلال الواتس اب او الايميل.</p>
+                        </div>
+                    </div>
+
+                    <!-- سؤال 3 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <div class="faq-btn"><i class="fas fa-plus"></i></div>
+                            <span>هل يمكن تعديل بياناتي؟</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>نعم. يمكنك من خلال التواصل معنا ويتم تعديلها بشكل فوري.</p>
+                        </div>
+                    </div>
+
+                    <!-- سؤال 4 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <div class="faq-btn"><i class="fas fa-plus"></i></div>
+                            <span>هل تعملون افكار خارج ما هو بالموقع ؟</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>نعم، يعتمد على الفكرة والمنتج المطبوع يرجى مشاركتنا المنتج الذي تود تصنيعه من خلال الواتس
+                                اب او الايميل حتى يتسنى لنا اعطائك المزيد من التفاصيل.</p>
+                        </div>
+                    </div>
+
+                    <!-- سؤال 5 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <div class="faq-btn"><i class="fas fa-plus"></i></div>
+                            <span>ما هو الفرق عند طلب كميات اكبر ؟</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>في الطباعة المقاس والكمية ونوع الورق هي المتغيرات الاساسية التي يتحدد بناء عليها السعر
+                                للمنتج، فكل ما زادت الكمية يقل السعر للحبة.</p>
+                        </div>
+                    </div>
+
+                    <!-- سؤال 6 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <div class="faq-btn"><i class="fas fa-plus"></i></div>
+                            <span>ماهو الفرق بين خدمات التصميم ؟</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                • <b>رفع تصميم خاص:</b> لا يتم التواصل معك، سيتم طباعة تصميمك مباشرة.<br>
+                                • <b>لدي تصميم يحتاج تعديل:</b> يتم التواصل معك خلال 48 ساعة للتعديل فقط مثل الحجم
+                                والنص.<br>
+                                • <b>طلب خدمة تصميم:</b> يتم بناء تصميم خاص بك من خلال فريق المصممين في الواتس اب خلال
+                                48 ساعة.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- سؤال 7 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <div class="faq-btn"><i class="fas fa-plus"></i></div>
+                            <span>كيف اقدر اطلع على بعض اعمالكم ؟</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>عن طريق التيك توك أو الانستقرام: <br> حساب التيك توك: @printnes <br> حساب الانستقرام:
+                                PRINTNES.CO</p>
+                        </div>
+                    </div>
+
+                    <!-- سؤال 8 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <div class="faq-btn"><i class="fas fa-plus"></i></div>
+                            <span>كم فترة العمل المتوقعة ؟</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>فترة العمل المتوقعة 3-8 ايام عمل وقد تختلف حسب الكمية والمنتج المرغوب وخدمة التركيب،
+                                والاحداث الخارجة عن الارادة مثل عطل في المكائن.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <div class="container footer-inner">
+                <!-- العمود الأول: معلومات الشركة -->
+                <div class="footer-col brand-col">
+                    <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
+                        class="footer-logo">
+                    <p class="footer-desc">
+                        PRINTNES مؤسسة سعودية معرّفه في وزارة التجارة "معروف" متخصصين في تصنيع المطبوعات وتقديم خدمات
+                        التصميم الفريدة والمتميزة
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- العمود الثاني: روابط مهمة -->
+                <div class="footer-col links-col">
+                    <h3>روابط مهمة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">لا تستطيع الوصول للمنتج؟ ( قاموس البحث هنا )</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">للشكاوي والاقتراحات</a></li>
+                        <li><a href="#">سياسة الاستبدال والاسترجاع</a></li>
+                        <li><a href="#">سياسة الطباعة والتصميم</a></li>
+                        <li><a href="#">نظام المكافآت</a></li>
+                    </ul>
+                </div>
+
+                <!-- العمود الثالث: تواصل معنا -->
+                <div class="footer-col contact-col">
+                    <h3>تواصل معنا</h3>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="tel:+966554804857">+966554804857</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="far fa-envelope"></i>
+                        <a href="mailto:support@printnes.co">support@printnes.co</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الشريط السفلي (حقوق النشر والدفع) -->
+            <div class="footer-bottom">
+                <div class="container bottom-wrap">
+                    <div class="payment-icons">
+                        <img src="https://img.icons8.com/color/48/visa.png" alt="visa">
+                        <img src="https://img.icons8.com/color/48/mastercard.png" alt="mastercard">
+                        <img src="https://img.icons8.com/color/48/apple-pay.png" alt="apple-pay">
+                        <span class="tabby-tamara">Tabby | Tamara</span>
+                    </div>
+
+                    <div class="tax-info">
+                        الرقم الضريبي : <span>310595349100003</span>
+                    </div>
+
+                    <div class="copyright">
+                        الحقوق محفوظة 2024 | <a href="#">Printnes</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- نافذة تخصيص المنتج (Drawer) -->
+        <div id="order-drawer" class="drawer-overlay hidden">
+            <div class="drawer-box">
+                <span class="close-drawer" onclick="closeDrawer()">&times;</span>
+                <h3 id="d-item-name">تخصيص المنتج</h3>
+                <div class="form-group">
+                    <label>نوع الورق / الخامة</label>
+                    <select id="d-material" onchange="calcPrice()">
+                        <option value="0">قياسي</option>
+                        <option value="10">فاخر (+10 ريال)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>ملاحظات إضافية</label>
+                    <textarea id="d-notes" placeholder="اكتب ملاحظاتك هنا..."></textarea>
+                </div>
+                <div class="drawer-summary">
+                    الإجمالي: <span id="d-total">0</span> ريال
+                </div>
+                <button class="btn-add-cart" onclick="confirmAddToCart()">تأكيد وإضافة للسلة</button>
+            </div>
+        </div>
+        <!-- نافذة تسجيل الدخول (Login Modal) -->
+        <div id="login-modal" class="modal-overlay hidden">
+            <div class="login-box">
+                <!-- زر الإغلاق -->
+                <span class="close-login" onclick="closeLoginModal()">&times;</span>
+
+                <!-- أيقونة المستخدم العلوية -->
+                <div class="user-avatar-circle">
+                    <i class="far fa-user"></i>
+                </div>
+
+                <h2>تسجيل الدخول</h2>
+
+                <div class="login-form">
+                    <div class="input-group-login">
+                        <label>البريد الإلكتروني</label>
+                        <input type="email" id="email-input" placeholder="your@email.com">
+                    </div>
+
+                    <button class="btn-login-main" onclick="handleLogin()">دخول</button>
+
+                    <!-- فاصل -->
+                    <div class="login-divider">
+                        <span>أو سجل دخولك من خلال</span>
+                    </div>
+
+                    <!-- أيقونات التواصل الاجتماعي -->
+                    <div class="social-login-grid">
+                        <a href="#" class="social-btn"><i class="fab fa-apple"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-google"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+
+</body>
+
+</html>

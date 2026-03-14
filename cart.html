@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سلة المشتريات | برنتس</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- الهيدر (نفس الهيدر الموحد) -->
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="brand-area" onclick="location.href='index.html'" style="cursor:pointer">
+                <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes" class="logo-img">
+                <div class="brand-text">
+                    <h1>Printnes</h1>
+                    <span>للطباعة والمطبوعات</span>
+                </div>
+            </div>
+            <div class="user-nav">
+                <div class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i> <span>الرئيسية</span></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container cart-page-main">
+        <!-- المسار (Breadcrumbs) -->
+        <nav class="breadcrumb">
+            <a href="index.html">الرئيسية</a> &gt; <span>سلة المشتريات</span>
+        </nav>
+
+        <!-- حالة السلة الفارغة (تظهر وتختفي برمجياً) -->
+        <div id="empty-cart-view" class="empty-state hidden">
+            <div class="empty-icon-circle">
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+            <h2>السلة فارغة</h2>
+            <button class="btn-orange-outline" onclick="location.href='index.html'">العودة للرئيسية</button>
+        </div>
+
+        <!-- حالة السلة المليئة -->
+        <div id="full-cart-view" class="full-cart-container hidden">
+            <div class="cart-table-wrapper">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>المنتج</th>
+                            <th>المواصفات</th>
+                            <th>السعر</th>
+                            <th>حذف</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-table-body">
+                        <!-- المنتجات تظهر هنا -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cart-summary-final">
+                <div class="summary-box">
+                    <div class="s-row"><span>إجمالي السلة:</span> <strong id="grand-total">0</strong> <span>ر.س</span></div>
+                    <button class="btn-complete-order" onclick="checkoutFullCart()">
+                        إتمام الطلب عبر واتساب <i class="fab fa-whatsapp"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- الفوتر (نفس الفوتر الموحد) -->
+    <footer class="footer-bottom" style="margin-top: 100px; text-align: center; padding: 20px;">
+        <p>جميع الحقوق محفوظة لبرنتس 2024</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // كود خاص بصفحة السلة فقط لتشغيل العرض
+        window.onload = function() {
+            renderCartPage();
+        };
+    </script>
+</body>
+</html>
