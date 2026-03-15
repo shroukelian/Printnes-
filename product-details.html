@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,26 +8,30 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body class="bg-light">
 
     <!-- الهيدر الموحد -->
     <header class="main-header">
         <div class="container header-content">
             <div class="brand-area" onclick="location.href='index.html'">
-                <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes" class="logo-img">
+                <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
+                    class="logo-img">
                 <div class="brand-text">
                     <h1>Printnes</h1>
                     <span>للطباعة والمطبوعات</span>
                 </div>
             </div>
             <div class="user-nav">
-                                <div class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i> <span>الرئيسية</span></div>
+                <div class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i>
+                    <span>الرئيسية</span>
+                </div>
 
                 <div class="nav-item cart" onclick="location.href='cart.html'">
                     <i class="fas fa-shopping-bag"></i>
                     <span id="cart-count">0</span>
                 </div>
-                
+
             </div>
         </div>
     </header>
@@ -34,7 +39,8 @@
     <main class="container py-5">
         <!-- المسار (Breadcrumbs) -->
         <nav class="breadcrumb">
-            <a href="index.html">الرئيسية</a> &gt; <span id="breadcrumb-cat">القسم</span> &gt; <span id="breadcrumb-name">اسم المنتج</span>
+            <a href="index.html">الرئيسية</a> &gt; <span id="breadcrumb-cat">القسم</span> &gt; <span
+                id="breadcrumb-name">اسم المنتج</span>
         </nav>
 
         <div class="product-details-wrapper">
@@ -49,7 +55,9 @@
             <div class="product-info-side">
                 <h1 id="product-title">اسم المنتج</h1>
                 <div class="rating-stars">
-                    <i class="fas fa-star text-orange"></i><i class="fas fa-star text-orange"></i><i class="fas fa-star text-orange"></i><i class="fas fa-star text-orange"></i><i class="fas fa-star text-orange"></i>
+                    <i class="fas fa-star text-orange"></i><i class="fas fa-star text-orange"></i><i
+                        class="fas fa-star text-orange"></i><i class="fas fa-star text-orange"></i><i
+                        class="fas fa-star text-orange"></i>
                     <span>(1 تقييم)</span>
                 </div>
 
@@ -69,23 +77,78 @@
                         <button class="tab-btn active">خيارات المنتج</button>
                         <button class="tab-btn">تقييمات المنتج</button>
                     </div>
-                    
                     <div class="options-body">
+                        <!-- 1. عدد أوجه الطباعة -->
                         <div class="form-group">
-                            <label>خدمة التصميم *</label>
-                            <select id="option-design">
-                                <option>اختر</option>
-                                <option>لدي تصميم جاهز</option>
-                                <option>أحتاج خدمة تصميم (+50 ر.س)</option>
+                            <label>اختر عدد أوجه الطباعة *</label>
+                            <select id="option-sides">
+                                <option value="">اختر</option>
+                                <option value="1">وجه واحد</option>
+                                <option value="2">وجهين</option>
                             </select>
                         </div>
+
+                        <!-- 2. خدمة التصميم (مع النص التوضيحي) -->
                         <div class="form-group">
-                            <label>طبقة الحماية - السلوفان *</label>
+                            <label>خدمة التصميم *</label>
+                            <small class="label-hint">لديك نموذج تصميم خاص أم تريد خدمة تصميم</small>
+                            <select id="option-design" onchange="calculateFinalPrice()">
+                                <option value="">اختر</option>
+                                <option value="0">لدي تصميم جاهز</option>
+                                <option value="50">أحتاج خدمة تصميم (+50 ر.س)</option>
+                            </select>
+                        </div>
+
+                        <!-- 3. طبقة الحماية -->
+                        <div class="form-group">
+                            <label>طبقة الحماية *</label>
                             <select id="option-cover">
-                                <option>اختر</option>
-                                <option>بدون</option>
-                                <option>مطفي (Matte)</option>
-                                <option>لامع (Glossy)</option>
+                                <option value="">اختر</option>
+                                <option value="none">بدون</option>
+                                <option value="matte">مطفي (Matte)</option>
+                                <option value="glossy">لامع (Glossy)</option>
+                            </select>
+                        </div>
+
+                        <!-- 4. مدة التنفيذ -->
+                        <div class="form-group">
+                            <label>مدة التنفيذ للمنتج *</label>
+                            <select id="option-duration">
+                                <option value="">اختر</option>
+                                <option value="normal">عادي (3-5 أيام)</option>
+                                <option value="urgent">مستعجل (24-48 ساعة)</option>
+                            </select>
+                        </div>
+
+                        <!-- 5. تصوير عينة -->
+                        <div class="form-group">
+                            <label>هل تريد تصوير عينة قبل طباعة الكمية *</label>
+                            <select id="option-sample">
+                                <option value="">اختر</option>
+                                <option value="yes">نعم</option>
+                                <option value="no">لا</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>النوع *</label>
+                            <small class="label-hint">اختر جودة ونوع الورق المستخدم</small>
+                            <select id="option-paper-type">
+                                <option value="">اختر</option>
+                                <option value="standard">ورق كوشيه 350 جرام (قياسي)</option>
+                                <option value="luxury">ورق فخم مطفي (Luxury Matte)</option>
+                                <option value="textured">ورق منقوش (Textured Paper)</option>
+                            </select>
+                        </div>
+
+                        <!-- 7. أطراف الكرت -->
+                        <div class="form-group">
+                            <label>أطراف الكرت *</label>
+                            <small class="label-hint">شكل زوايا الكرت النهائية</small>
+                            <select id="option-corners">
+                                <option value="">اختر</option>
+                                <option value="straight">زوايا مستقيمة (حادة)</option>
+                                <option value="rounded">زوايا منحنية - ربع دائرة (Rounded)</option>
                             </select>
                         </div>
                     </div>
@@ -128,79 +191,80 @@
         </div>
     </div>
 
-       <footer class="main-footer">
-            <div class="container footer-inner">
-                <!-- العمود الأول: معلومات الشركة -->
-                <div class="footer-col brand-col">
-                    <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
-                        class="footer-logo">
-                    <p class="footer-desc">
-                        PRINTNES مؤسسة سعودية معرّفه في وزارة التجارة "معروف" متخصصين في تصنيع المطبوعات وتقديم خدمات
-                        التصميم الفريدة والمتميزة
-                    </p>
-                    <div class="footer-socials">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-
-                <!-- العمود الثاني: روابط مهمة -->
-                <div class="footer-col links-col">
-                    <h3>روابط مهمة</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">سياسة الخصوصية</a></li>
-                        <li><a href="#">لا تستطيع الوصول للمنتج؟ ( قاموس البحث هنا )</a></li>
-                        <li><a href="#">الأسئلة الشائعة</a></li>
-                        <li><a href="#">للشكاوي والاقتراحات</a></li>
-                        <li><a href="#">سياسة الاستبدال والاسترجاع</a></li>
-                        <li><a href="#">سياسة الطباعة والتصميم</a></li>
-                        <li><a href="#">نظام المكافآت</a></li>
-                    </ul>
-                </div>
-
-                <!-- العمود الثالث: تواصل معنا -->
-                <div class="footer-col contact-col">
-                    <h3>تواصل معنا</h3>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <a href="tel:+966554804857">+966554804857</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="far fa-envelope"></i>
-                        <a href="mailto:support@printnes.co">support@printnes.co</a>
-                    </div>
+    <footer class="main-footer">
+        <div class="container footer-inner">
+            <!-- العمود الأول: معلومات الشركة -->
+            <div class="footer-col brand-col">
+                <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
+                    class="footer-logo">
+                <p class="footer-desc">
+                    PRINTNES مؤسسة سعودية معرّفه في وزارة التجارة "معروف" متخصصين في تصنيع المطبوعات وتقديم خدمات
+                    التصميم الفريدة والمتميزة
+                </p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
 
-            <!-- الشريط السفلي (حقوق النشر والدفع) -->
-            <div class="footer-bottom">
-                <div class="container bottom-wrap">
-                    <div class="payment-icons">
-                        <img src="https://img.icons8.com/color/48/visa.png" alt="visa">
-                        <img src="https://img.icons8.com/color/48/mastercard.png" alt="mastercard">
-                        <img src="https://img.icons8.com/color/48/apple-pay.png" alt="apple-pay">
-                        <span class="tabby-tamara">Tabby | Tamara</span>
-                    </div>
+            <!-- العمود الثاني: روابط مهمة -->
+            <div class="footer-col links-col">
+                <h3>روابط مهمة</h3>
+                <ul class="footer-links">
+                    <li><a href="#">سياسة الخصوصية</a></li>
+                    <li><a href="#">لا تستطيع الوصول للمنتج؟ ( قاموس البحث هنا )</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                    <li><a href="#">للشكاوي والاقتراحات</a></li>
+                    <li><a href="#">سياسة الاستبدال والاسترجاع</a></li>
+                    <li><a href="#">سياسة الطباعة والتصميم</a></li>
+                    <li><a href="#">نظام المكافآت</a></li>
+                </ul>
+            </div>
 
-                    <div class="tax-info">
-                        الرقم الضريبي : <span>310595349100003</span>
-                    </div>
-
-                    <div class="copyright">
-                        الحقوق محفوظة 2024 | <a href="#">Printnes</a>
-                    </div>
+            <!-- العمود الثالث: تواصل معنا -->
+            <div class="footer-col contact-col">
+                <h3>تواصل معنا</h3>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="tel:+966554804857">+966554804857</a>
+                </div>
+                <div class="contact-item">
+                    <i class="far fa-envelope"></i>
+                    <a href="mailto:support@printnes.co">support@printnes.co</a>
                 </div>
             </div>
-        </footer>
+        </div>
+
+        <!-- الشريط السفلي (حقوق النشر والدفع) -->
+        <div class="footer-bottom">
+            <div class="container bottom-wrap">
+                <div class="payment-icons">
+                    <img src="https://img.icons8.com/color/48/visa.png" alt="visa">
+                    <img src="https://img.icons8.com/color/48/mastercard.png" alt="mastercard">
+                    <img src="https://img.icons8.com/color/48/apple-pay.png" alt="apple-pay">
+                    <span class="tabby-tamara">Tabby | Tamara</span>
+                </div>
+
+                <div class="tax-info">
+                    الرقم الضريبي : <span>310595349100003</span>
+                </div>
+
+                <div class="copyright">
+                    الحقوق محفوظة 2024 | <a href="#">Printnes</a>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="script.js"></script>
     <script>
         // تحميل البيانات عند فتح الصفحة
-        window.onload = function() {
+        window.onload = function () {
             renderProductDetails();
             renderSection("featured", "related-render"); // عرض منتجات مشابهة
         };
     </script>
 
-    
+
 </body>
+
 </html>

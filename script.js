@@ -549,3 +549,41 @@ function toggleSubMenu(element) {
 
     console.log("Submenu toggled for:", parentLi); // للتأكد في الكونسول إنها اشتغلت
 }
+
+
+function addToCartFromDetails() {
+    // جلب القيم من كل الخيارات الجديدة
+    const design = document.getElementById('option-design').value;
+    const sides = document.getElementById('option-sides').value;
+    const cover = document.getElementById('option-cover').value;
+    const paperType = document.getElementById('option-paper-type').value;
+    const corners = document.getElementById('option-corners').value;
+    const quantity = document.getElementById('prod-qty').value;
+
+    // التأكد من أن المستخدم اختار الحقول الإلزامية
+    if (!paperType || !corners) {
+        alert("يرجى اختيار النوع وأطراف الكرت أولاً");
+        return;
+    }
+
+    const item = {
+        name: activeProduct.name,
+        price: parseFloat(document.getElementById('sticky-price').innerText),
+        img: activeProduct.img,
+        details: {
+            design: design,
+            sides: sides,
+            cover: cover,
+            paperType: paperType,
+            corners: corners,
+            qty: quantity
+        }
+    };
+
+    cart.push(item);
+    localStorage.setItem('printnesCart', JSON.stringify(cart));
+    updateCartBadge();
+
+    // إظهار التنبيه (Toast)
+    showCartToast(item);
+}
