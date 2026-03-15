@@ -2289,3 +2289,28 @@ footer {
 .user-info img {
     border-radius: 50%;
 }
+
+/* إخفاء القوائم الفرعية في الحالة العادية */
+.submenu-list {
+    display: none; /* مخفية */
+    list-style: none;
+    padding: 0;
+    background: #fdfdfd;
+}
+
+/* إظهار القائمة الفرعية فوراً لما الأب ياخد كلاس open */
+.has-submenu.open > .submenu-list {
+    display: block !important;
+    animation: fadeInMenu 0.3s ease;
+}
+
+/* تدوير السهم الصغير عشان الزبون يعرف إنها فتحت */
+.has-submenu.open .arrow {
+    transform: rotate(-90deg); /* السهم يلف لتحت */
+    color: #f26a2e;
+}
+
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

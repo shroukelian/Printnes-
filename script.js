@@ -365,3 +365,21 @@ function renderBlogGrid() {
         </article>
     `).join('');
 }
+
+// وظيفة فتح وإغلاق القوائم الفرعية (Submenus)
+function toggleSubMenu(element) {
+    // 1. الوصول للعنصر الأب (الـ li اللي شايل القائمة)
+    const parentLi = element.parentElement;
+    
+    // 2. إغلاق أي قوائم فرعية تانية مفتوحة عشان الزحمة (اختياري)
+    document.querySelectorAll('.has-submenu').forEach(item => {
+        if (item !== parentLi) {
+            item.classList.remove('open');
+        }
+    });
+
+    // 3. إضافة أو حذف كلاس 'open' اللي بيخلي القائمة تظهر
+    parentLi.classList.toggle('open');
+    
+    console.log("Submenu toggled for:", parentLi); // للتأكد في الكونسول إنها اشتغلت
+}
