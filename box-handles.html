@@ -4,39 +4,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>برنتس للطباعة والمطبوعات | الصفحة الرئيسية</title>
+    <title>بوكس مع حامل | برنتس</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
+
+    <!-- تنبيه الإضافة (Toast) -->
+    <div id="cart-toast" class="cart-toast-container hidden">
+        <div class="toast-progress"></div>
+        <div class="toast-header">
+            <span class="status-icon"><i class="fas fa-check-circle"></i> تمت الإضافة بنجاح</span>
+            <span class="close-toast" onclick="hideToast()">&times;</span>
+        </div>
+        <div class="toast-body">
+            <img id="toast-product-img" src="" alt="">
+            <div class="toast-info">
+                <h4 id="toast-product-name">اسم المنتج</h4>
+                <span class="toast-price"><span id="toast-product-price">0</span> ر.س</span>
+            </div>
+        </div>
+    </div>
+
     <!-- الهيدر الموحد -->
     <header class="main-header">
         <div class="container header-content">
-            <div class="brand-area" onclick="location.href='index.html'">
-                <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" class="logo-img">
-                <div class="brand-text">
-                    <h1>Printnes</h1>
+            <div class="brand-area">
+                <div class="logo-and-text" onclick="location.href='index.html'" style="cursor:pointer">
+                    <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
+                        class="logo-img">
+                    <div class="brand-text">
+                        <h1>Printnes</h1>
+                        <span>للطباعة والمطبوعات</span>
+                    </div>
+                </div>
+                <button class="menu-toggle-btn" onclick="openSideMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="search-wrapper">
+                <input type="text" placeholder="ابحث عن منتج...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="user-nav">
+                <div class="nav-item cart" onclick="location.href='cart.html'">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cart-count">0</span>
                 </div>
             </div>
-            <button class="menu-toggle-btn" onclick="openSideMenu()"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
+    <!-- الغطاء الشفاف والمنيو الجانبية (ضروري تواجدهم في كل صفحة) -->
+    <div id="menu-overlay" class="menu-overlay hidden" onclick="closeSideMenu()"></div>
+
+
+    <!-- البار البرتقالي (Breadcrumbs) -->
     <div class="category-header-bar">
         <div class="container">
             <nav class="breadcrumb-white">
-                <a href="index.html">الرئيسية</a> <span>/</span> <strong>عروض البكجات</strong>
+                <a href="index.html">الرئيسية</a> <span>/</span> <a href="boxes.html">الطباعة على البوكسات</a>
+                <span>/</span>
+                <strong>بوكس مع حامل</strong>
             </nav>
         </div>
     </div>
 
     <main class="container py-4">
         <div class="shop-controls">
-            <h2 class="page-title-main">عروض البكجات</h2>
+            <h2 class="orange-line-title">الطباعة على البوكسات | بوكس مع حامل</h2>
+            <div class="sort-filter">
+                <label>ترتيب</label>
+                <div class="custom-select-wrapper">
+                    <select>
+                        <option>مقترحاتنا</option>
+                        <option>الأكثر مبيعاً</option>
+                    </select>
+                </div>
+            </div>
         </div>
-        <div class="products-grid" id="packages-render">
-            <!-- سيتم تحميل البكجات فقط هنا -->
+
+        <!-- شبكة عرض المنتجات -->
+        <div class="products-grid" id="render-box-handles">
+            <!-- يتم توليد المنتجات عبر JS -->
         </div>
     </main>
     <footer class="main-footer">
@@ -106,32 +159,10 @@
     <script src="script.js"></script>
     <script>
         window.onload = function () {
-            // سنقوم بتحميل قسم البكجات فقط من المصفوفة
-            renderSection("featured", "packages-render");
+            renderSection("box_handles", "render-box-handles");
             updateCartBadge();
-        }
+        };
     </script>
-    <!-- لازم الـ IDs دي تكون مكتوبة كدة بالظبط -->
-    <div id="menu-overlay" class="menu-overlay hidden" onclick="closeSideMenu()"></div>
-
-    <aside id="side-menu" class="side-menu shadow-lg">
-        <div class="menu-header">
-            <div class="brand-small">
-                <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes">
-                <span>برنتس</span>
-            </div>
-            <button class="close-menu-btn" onclick="closeSideMenu()">&times;</button>
-        </div>
-        <div class="menu-body">
-            <ul class="main-nav-list">
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="all-products.html">كل المنتجات</a></li>
-                <li><a href="packages.html">عروض البكجات</a></li>
-                <li><a href="#">مطبوعات ورقية</a></li>
-                <li><a href="#">طباعة البوكسات</a></li>
-            </ul>
-        </div>
-    </aside>
 </body>
 
 </html>

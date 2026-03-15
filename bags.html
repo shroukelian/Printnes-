@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
     <!-- التنبيه (Toast) -->
@@ -30,7 +32,8 @@
         <div class="container header-content">
             <div class="brand-area">
                 <div class="logo-and-text" onclick="location.href='index.html'">
-                    <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes" class="logo-img">
+                    <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
+                        class="logo-img">
                     <div class="brand-text">
                         <h1>Printnes</h1>
                         <span>للطباعة والمطبوعات</span>
@@ -56,8 +59,120 @@
 
     <!-- المنيو الجانبية والغطاء -->
     <div id="menu-overlay" class="menu-overlay hidden" onclick="closeSideMenu()"></div>
-    <aside id="side-menu" class="side-menu shadow-lg">
-        <!-- يتم نسخ محتوى المنيو المحدث الذي أرسلتُه لكِ سابقاً هنا -->
+   <aside id="side-menu" class="side-menu shadow-lg">
+        <div class="menu-header">
+            <div class="brand-small">
+                <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes">
+                <span>برنتس</span>
+            </div>
+            <button class="close-menu-btn" onclick="closeSideMenu()">&times;</button>
+        </div>
+
+        <div class="menu-body">
+            <ul class="main-nav-list">
+                <!-- روابط مباشرة -->
+                <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                <li><a href="all-products.html">كل المنتجات</a></li>
+                <li><a href="packages.html">عروض البكجات</a></li>
+
+                <!-- قسم الملصقات والاستيكرات -->
+                <li class="has-submenu">
+                    <div class="menu-item-flex" onclick="toggleSubMenu(this)">
+                        <a href="stickers.html" style="padding:0; flex:1; background:none; color:inherit;">طباعة
+                            الملصقات والاستيكرات</a>
+                        <i class="fas fa-chevron-left arrow"></i>
+                    </div>
+                    <ul class="submenu-list">
+                        <li><a href="stickers.html">عرض الكل</a></li>
+                        <li><a href="stickers-rect.html">استيكرات مستطيلة</a></li>
+                        <li><a href="#">قص على الحدود</a></li>
+                        <li><a href="#">ستيكر شيت</a></li>
+                        <li><a href="#">استيكرات 3D</a></li>
+                        <li><a href="#">استيكرات Spot UV</a></li>
+                        <li><a href="#">استيكرات مربعة</a></li>
+                        <li><a href="#">استيكرات دائرية</a></li>
+                        <li class="menu-promo-item">
+                            <img src="https://cdn.salla.sa/rDvVQ/OQxmT3F9y8bS0SrRQOIZVusIvSyRHalGpw0j7rJX.png"
+                                alt="Promo">
+                            <p>طباعة ديجيتال عالية الدقة</p>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- قسم مطبوعات ورقية -->
+                <li class="has-submenu">
+                    <div class="menu-item-flex" onclick="toggleSubMenu(this)">
+                        <span>مطبوعات ورقية</span>
+                        <i class="fas fa-chevron-left arrow"></i>
+                    </div>
+                    <ul class="submenu-list">
+                        <li><a href="paper-prints.html">عرض الكل</a></li>
+                        <li><a href="file-prints.html">ملف</a></li>
+                        <li><a href="#">مخططات هندسية</a></li>
+                        <li><a href="#">أظرف كروت</a></li>
+                        <li><a href="#">كروت شخصية</a></li>
+                        <li><a href="#">تاقات</a></li>
+                        <li><a href="#">أظرف مراسلات</a></li>
+                        <li><a href="#">بروشور</a></li>
+                        <li><a href="#">فلاير</a></li>
+                        <li><a href="#">شهادات شكر</a></li>
+                    </ul>
+                </li>
+
+                <!-- قسم البوكسات -->
+                <li class="has-submenu">
+                    <div class="menu-item-flex" onclick="toggleSubMenu(this)">
+                        <a href="boxes.html" style="padding:0; flex:1; background:none; color:inherit;">الطباعة على
+                            البوكسات</a>
+                        <i class="fas fa-chevron-left arrow"></i>
+                    </div>
+                    <ul class="submenu-list">
+                        <li><a href="boxes.html">عرض الكل</a></li>
+                        <li><a href="box-handles.html">بوكس مع حامل</a></li>
+                        <li><a href="#">بوكسات سحاب</a></li>
+                        <li><a href="#">بوكسات قاعده وغطاء</a></li>
+                    </ul>
+                </li>
+
+                <!-- قسم بطاقات الشكر والاهداء (جديد Dropdown) -->
+                <li class="has-submenu">
+                    <div class="menu-item-flex" onclick="toggleSubMenu(this)">
+                        <span>بطاقات الشكر والاهداء</span>
+                        <i class="fas fa-chevron-left arrow"></i>
+                    </div>
+                    <ul class="submenu-list">
+                        <li><a href="gift-cards.html">عرض الكل</a></li>
+                        <li><a href="folded-cards.html">بطاقات مطوية</a></li>
+                        <li><a href="#">بطاقات مربعة</a></li>
+                        <li><a href="#">بطاقات دائرية</a></li>
+                        <li><a href="#">بطاقة - حامل لمنتج</a></li>
+                    </ul>
+                </li>
+
+                <!-- قسم التغليف والتعبئة (جديد Dropdown) -->
+                <li class="has-submenu">
+                    <div class="menu-item-flex" onclick="toggleSubMenu(this)">
+                        <span>التغليف والتعبئة</span>
+                        <i class="fas fa-chevron-left arrow"></i>
+                    </div>
+                    <ul class="submenu-list">
+                        <li><a href="packaging.html">عرض الكل</a></li>
+                        <li><a href="wrapping-paper.html">ورق تغليف</a></li>
+                        <li><a href="#">سليف الأكواب</a></li>
+                        <li><a href="#">حامل الأكواب</a></li>
+                        <li><a href="#">سليف علب</a></li>
+                        <li><a href="#">تغليف العلب</a></li>
+                        <li><a href="#">ليبل ملابس قماشي</a></li>
+                        <li><a href="#">شرائط الهدايا</a></li>
+                    </ul>
+                </li>
+
+                <!-- روابط إضافية -->
+                <li><a href="bags.html">طباعة على الأكياس</a></li>
+                <li><a href="design-services.html">خدمات التصميم</a></li>
+                <li><a href="blog.html"><i class="fas fa-book"></i> المدونة</a></li>
+            </ul>
+        </div>
     </aside>
 
     <!-- البار البرتقالي (Breadcrumbs) -->
@@ -73,8 +188,16 @@
         <div class="shop-controls">
             <h2 class="page-title-main">الطباعة على الأكياس</h2>
             <div class="sort-filter">
-                <label>ترتيب:</label>
-                <select><option>مقترحاتنا</option></select>
+                <label>ترتيب</label>
+                <div class="custom-select-wrapper">
+                    <select id="sort-options">
+                        <option value="suggestions" selected>مقترحاتنا</option>
+                        <option value="best-selling">الأكثر مبيعاً</option>
+                        <option value="top-rated">الأعلى تقييماً</option>
+                        <option value="price-high">السعر من الأعلى إلى الأقل</option>
+                        <option value="price-low">السعر من الأقل إلى الأعلى</option>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -92,87 +215,92 @@
                 <div class="test-card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
                     <p>حلوووووين طلبتهم كتجربه شفت شغلهم عند بنت خالتي وكل شي يجنن وبيرفكت</p>
-                    <div class="user-info"><strong>زهراء الزاهر</strong> <img src="https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_female.png" width="30"></div>
+                    <div class="user-info"><strong>زهراء الزاهر</strong> <img
+                            src="https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_female.png"
+                            width="30"></div>
                 </div>
                 <div class="test-card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
                     <p>الجوده والطباعه رووووووعه مره متعاون فريق العمل وسرعه بالأنجاز والتوصيل مو آخر تجربه</p>
-                    <div class="user-info"><strong>قاسم الراشد</strong> <img src="https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png" width="30"></div>
+                    <div class="user-info"><strong>قاسم الراشد</strong> <img
+                            src="https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png"
+                            width="30"></div>
                 </div>
             </div>
         </section>
     </main>
- <footer class="main-footer">
-            <div class="container footer-inner">
-                <!-- العمود الأول: معلومات الشركة -->
-                <div class="footer-col brand-col">
-                    <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
-                        class="footer-logo">
-                    <p class="footer-desc">
-                        PRINTNES مؤسسة سعودية معرّفه في وزارة التجارة "معروف" متخصصين في تصنيع المطبوعات وتقديم خدمات
-                        التصميم الفريدة والمتميزة
-                    </p>
-                    <div class="footer-socials">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-
-                <!-- العمود الثاني: روابط مهمة -->
-                <div class="footer-col links-col">
-                    <h3>روابط مهمة</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">سياسة الخصوصية</a></li>
-                        <li><a href="#">لا تستطيع الوصول للمنتج؟ ( قاموس البحث هنا )</a></li>
-                        <li><a href="#">الأسئلة الشائعة</a></li>
-                        <li><a href="#">للشكاوي والاقتراحات</a></li>
-                        <li><a href="#">سياسة الاستبدال والاسترجاع</a></li>
-                        <li><a href="#">سياسة الطباعة والتصميم</a></li>
-                        <li><a href="#">نظام المكافآت</a></li>
-                    </ul>
-                </div>
-
-                <!-- العمود الثالث: تواصل معنا -->
-                <div class="footer-col contact-col">
-                    <h3>تواصل معنا</h3>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <a href="tel:+966554804857">+966554804857</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="far fa-envelope"></i>
-                        <a href="mailto:support@printnes.co">support@printnes.co</a>
-                    </div>
+    <footer class="main-footer">
+        <div class="container footer-inner">
+            <!-- العمود الأول: معلومات الشركة -->
+            <div class="footer-col brand-col">
+                <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
+                    class="footer-logo">
+                <p class="footer-desc">
+                    PRINTNES مؤسسة سعودية معرّفه في وزارة التجارة "معروف" متخصصين في تصنيع المطبوعات وتقديم خدمات
+                    التصميم الفريدة والمتميزة
+                </p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
 
-            <!-- الشريط السفلي (حقوق النشر والدفع) -->
-            <div class="footer-bottom">
-                <div class="container bottom-wrap">
-                    <div class="payment-icons">
-                        <img src="https://img.icons8.com/color/48/visa.png" alt="visa">
-                        <img src="https://img.icons8.com/color/48/mastercard.png" alt="mastercard">
-                        <img src="https://img.icons8.com/color/48/apple-pay.png" alt="apple-pay">
-                        <span class="tabby-tamara">Tabby | Tamara</span>
-                    </div>
+            <!-- العمود الثاني: روابط مهمة -->
+            <div class="footer-col links-col">
+                <h3>روابط مهمة</h3>
+                <ul class="footer-links">
+                    <li><a href="#">سياسة الخصوصية</a></li>
+                    <li><a href="#">لا تستطيع الوصول للمنتج؟ ( قاموس البحث هنا )</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                    <li><a href="#">للشكاوي والاقتراحات</a></li>
+                    <li><a href="#">سياسة الاستبدال والاسترجاع</a></li>
+                    <li><a href="#">سياسة الطباعة والتصميم</a></li>
+                    <li><a href="#">نظام المكافآت</a></li>
+                </ul>
+            </div>
 
-                    <div class="tax-info">
-                        الرقم الضريبي : <span>310595349100003</span>
-                    </div>
-
-                    <div class="copyright">
-                        الحقوق محفوظة 2024 | <a href="#">Printnes</a>
-                    </div>
+            <!-- العمود الثالث: تواصل معنا -->
+            <div class="footer-col contact-col">
+                <h3>تواصل معنا</h3>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="tel:+966554804857">+966554804857</a>
+                </div>
+                <div class="contact-item">
+                    <i class="far fa-envelope"></i>
+                    <a href="mailto:support@printnes.co">support@printnes.co</a>
                 </div>
             </div>
-        </footer>
+        </div>
+
+        <!-- الشريط السفلي (حقوق النشر والدفع) -->
+        <div class="footer-bottom">
+            <div class="container bottom-wrap">
+                <div class="payment-icons">
+                    <img src="https://img.icons8.com/color/48/visa.png" alt="visa">
+                    <img src="https://img.icons8.com/color/48/mastercard.png" alt="mastercard">
+                    <img src="https://img.icons8.com/color/48/apple-pay.png" alt="apple-pay">
+                    <span class="tabby-tamara">Tabby | Tamara</span>
+                </div>
+
+                <div class="tax-info">
+                    الرقم الضريبي : <span>310595349100003</span>
+                </div>
+
+                <div class="copyright">
+                    الحقوق محفوظة 2024 | <a href="#">Printnes</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             renderSection("bags", "render-bags-page");
             updateCartBadge();
         };
     </script>
 </body>
+
 </html>

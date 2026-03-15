@@ -4,36 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طباعة الملصقات والاستيكرات | برنتس</title>
+    <title>ورق تغليف | برنتس</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
+
+    <!-- تنبيه الإضافة (Toast) -->
+    <div id="cart-toast" class="cart-toast-container hidden">
+        <div class="toast-progress"></div>
+        <div class="toast-header">
+            <span class="status-icon"><i class="fas fa-check-circle"></i> تمت الإضافة بنجاح</span>
+            <span class="close-toast" onclick="hideToast()">&times;</span>
+        </div>
+        <div class="toast-body">
+            <img id="toast-product-img" src="" alt="">
+            <div class="toast-info">
+                <h4 id="toast-product-name">اسم المنتج</h4>
+                <span class="toast-price"><span id="toast-product-price">0</span> ر.س</span>
+            </div>
+        </div>
+    </div>
+
     <!-- الهيدر الموحد -->
     <header class="main-header">
         <div class="container header-content">
             <div class="brand-area">
-                <div class="logo-and-text" onclick="location.href='index.html'">
+                <div class="logo-and-text" onclick="location.href='index.html'" style="cursor:pointer">
                     <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
                         class="logo-img">
                     <div class="brand-text">
                         <h1>Printnes</h1>
+                        <span>للطباعة والمطبوعات</span>
                     </div>
                 </div>
-                <button class="menu-toggle-btn" onclick="openSideMenu()"><i class="fas fa-bars"></i></button>
+                <button class="menu-toggle-btn" onclick="openSideMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="search-wrapper">
+                <input type="text" placeholder="ادخل كلمة البحث">
+                <button><i class="fas fa-search"></i></button>
             </div>
             <div class="user-nav">
+                <div class="nav-item" onclick="openLoginModal()"><i class="far fa-user"></i></div>
                 <div class="nav-item cart" onclick="location.href='cart.html'">
-                    <i class="fas fa-shopping-bag"></i> <span id="cart-count">0</span>
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cart-count">0</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- المنيو الجانبية (تأكدي من وجودها في كل صفحة) -->
     <div id="menu-overlay" class="menu-overlay hidden" onclick="closeSideMenu()"></div>
-      <aside id="side-menu" class="side-menu shadow-lg">
+
+    <aside id="side-menu" class="side-menu shadow-lg">
         <div class="menu-header">
             <div class="brand-small">
                 <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes">
@@ -148,49 +174,41 @@
             </ul>
         </div>
     </aside>
-    <!-- البار البرتقالي للقسم -->
+
+    <!-- البار البرتقالي (Breadcrumbs) كما في الصورة -->
     <div class="category-header-bar">
         <div class="container">
             <nav class="breadcrumb-white">
-                <a href="index.html">الرئيسية</a> <span>/</span> <strong>طباعة الملصقات والاستيكرات</strong>
+                <a href="index.html">الرئيسية</a> <span>/</span> <a href="packaging.html">التغليف والتعبئة</a>
+                <span>/</span>
+                <strong>ورق تغليف</strong>
             </nav>
         </div>
     </div>
 
-    <!-- فلاتر الاستيكرات (الأزرار البرتقالية) -->
-    <section class="sub-categories-pills">
-        <div class="container pills-wrapper">
-            <button class="pill active">عرض الكل</button>
-            <button class="pill">استيكرات مستطيلة</button>
-            <button class="pill">استيكرات بشكل مخصص</button>
-            <button class="pill">ستيكر شيت</button>
-            <button class="pill">استيكرات 3D</button>
-            <button class="pill">استيكرات دائرية</button>
-            <button class="pill">استيكرات مربعة</button>
-        </div>
-    </section>
-
     <main class="container py-4">
         <div class="shop-controls">
-            <h2 class="page-title-main">طباعة الملصقات والاستيكرات</h2>
+            <!-- العنوان المحاذى لليمين مع الخط البرتقالي -->
+            <h2 class="orange-line-title">التغليف والتعبئة | ورق تغليف</h2>
+
             <div class="sort-filter">
                 <label>ترتيب</label>
                 <div class="custom-select-wrapper">
-                    <select id="sort-options">
-                        <option value="suggestions" selected>مقترحاتنا</option>
-                        <option value="best-selling">الأكثر مبيعاً</option>
-                        <option value="top-rated">الأعلى تقييماً</option>
-                        <option value="price-high">السعر من الأعلى إلى الأقل</option>
-                        <option value="price-low">السعر من الأقل إلى الأعلى</option>
+                    <select>
+                        <option selected>مقترحاتنا</option>
+                        <option>الأكثر مبيعاً</option>
+                        <option>السعر من الأقل</option>
                     </select>
                 </div>
             </div>
         </div>
 
-        <div class="products-grid" id="stickers-render">
-            <!-- سيتم تحميل الاستيكرات من JS -->
+        <!-- شبكة عرض ورق التغليف -->
+        <div class="products-grid" id="render-wrapping-paper">
+            <!-- يتم توليد المنتجات عبر JS -->
         </div>
     </main>
+
     <footer class="main-footer">
         <div class="container footer-inner">
             <!-- العمود الأول: معلومات الشركة -->
@@ -255,12 +273,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- زر واتساب العائم -->
+    <a href="https://wa.me/966554804857" class="wa-float-fixed"><i class="fab fa-whatsapp"></i></a>
+
     <script src="script.js"></script>
     <script>
         window.onload = function () {
-            renderSection("stickers", "stickers-render");
+            renderSection("wrapping_paper", "render-wrapping-paper");
             updateCartBadge();
-        }
+        };
     </script>
 </body>
 

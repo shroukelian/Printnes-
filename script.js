@@ -14,34 +14,34 @@ const storeData = {
     "cartons": [
         { id: 201, name: "كرتون شحن مقاس 29x20x14", price: 3.2, badge: "وصول إلى 3.2 ريال", img: "images/img1.webp" }
     ],
- "bags": [
-        { 
-            id: 301, 
-            name: "كيس كرتوني فاخر مقاس 28x28x15", 
-            price: 9, 
-            badge: "وصول إلى 9 ريال", 
-            img: "images/img1.webp" 
+    "bags": [
+        {
+            id: 301,
+            name: "كيس كرتوني فاخر مقاس 28x28x15",
+            price: 9,
+            badge: "وصول إلى 9 ريال",
+            img: "images/img1.webp"
         },
-        { 
-            id: 302, 
-            name: "كيس ورد بشكل قمع 39x30", 
-            price: 7.5, 
-            badge: "وصول إلى 7.5 ريال", 
-            img: "images/img1.webp" 
+        {
+            id: 302,
+            name: "كيس ورد بشكل قمع 39x30",
+            price: 7.5,
+            badge: "وصول إلى 7.5 ريال",
+            img: "images/img1.webp"
         },
-        { 
-            id: 303, 
-            name: "كيس كرتوني فاخر مقاس 30x20x8", 
-            price: 7.5, 
-            badge: "وصول إلى 7.5 ريال", 
-            img: "images/img1.webp" 
+        {
+            id: 303,
+            name: "كيس كرتوني فاخر مقاس 30x20x8",
+            price: 7.5,
+            badge: "وصول إلى 7.5 ريال",
+            img: "images/img1.webp"
         },
-        { 
-            id: 304, 
-            name: "كيس بقلة علوية مقاس 22x20x10 سم", 
-            price: 7.5, 
-            badge: "وصول إلى 7.5 ريال", 
-            img: "images/img1.webp" 
+        {
+            id: 304,
+            name: "كيس بقلة علوية مقاس 22x20x10 سم",
+            price: 7.5,
+            badge: "وصول إلى 7.5 ريال",
+            img: "images/img1.webp"
         }
     ],
     "packaging": [
@@ -49,10 +49,176 @@ const storeData = {
     ],
 
     "stickers": [
-        { id: 501, name: "ستيكرات هولوجرام - Holographic", price: 1.5, badge: "طباعة رقمية عالية الدقة", img: "https://cdn.salla.sa/rDvVQ/OQxmT3F9y8bS0SrRQOIZVusIvSyRHalGpw0j7rJX.png" },
-        { id: 502, name: "ستيكرات UV في شيت A6", price: 2.5, badge: "ابتداءً من 0.99 ريال", img: "https://cdn.salla.sa/rDvVQ/0Wn6S8lHqsRtMdMLRUfqsmtbIGHj2A43pb0E6OWW.jpg" },
-        { id: 503, name: "ستيكر محاصيل القهوة", price: 0.99, badge: "ستيكر محاصيل القهوة", img: "https://cdn.salla.sa/rDvVQ/1pKR8dtK4Hd9UoYFf1hqwqPQJMn5YFEqyOyJngiZ.jpg" },
-        { id: 504, name: "ستيكرات دائرية 5x5", price: 0.5, badge: "ابتداءً من 0.99 ريال", img: "https://cdn.salla.sa/rDvVQ/OQxmT3F9y8bS0SrRQOIZVusIvSyRHalGpw0j7rJX.png" }
+        { id: 501, name: "ستيكرات هولوجرام - Holographic", price: 1.5, badge: "طباعة رقمية عالية الدقة", img: "images/img1.webp" },
+        { id: 502, name: "ستيكرات UV في شيت A6", price: 2.5, badge: "ابتداءً من 0.99 ريال", img: "images/img1.webp" },
+        { id: 503, name: "ستيكر محاصيل القهوة", price: 0.99, badge: "ستيكر محاصيل القهوة", img: "images/img1.webp" },
+        { id: 504, name: "ستيكرات دائرية 5x5", price: 0.5, badge: "ابتداءً من 0.99 ريال", img: "images/img1.webp" }
+    ],
+    "rect_stickers": [
+        {
+            id: 601,
+            name: "استيكر مقاس 1.5x8cm",
+            price: 0.8,
+            badge: "ستيكر مقاس 1.5x8 سم",
+            img: "images/img1.webp"
+        },
+        {
+            id: 602,
+            name: "ستيكرات تغليف بوكس الفلين",
+            price: 5,
+            badge: "ستيكر تغليف بوكس الفلين",
+            img: "images/img1.webp"
+        },
+        {
+            id: 603,
+            name: "ستيكر بخلفية (مستطيل)",
+            price: 1.2,
+            badge: "استيكر مستطيل",
+            img: "images/img1.webp"
+        },
+        {
+            id: 604,
+            name: "ستيكر محصول القهوة",
+            price: 0.99,
+            badge: "ستيكر محصول القهوة",
+            img: "images/img1.webp"
+        }
+    ],
+    "box_handles": [
+        {
+            id: 701,
+            name: "حامل بوكس (بمقاسات متعددة)",
+            price: 2.09,
+            badge: "وصول إلى 2.09 ريال",
+            img: "images/img1.webp"
+        },
+        {
+            id: 702,
+            name: "بوكس عرض 15x25x15",
+            price: 3.98,
+            badge: "وصول إلى 3.98 ريال",
+            img: "images/img1.webp"
+        },
+        {
+            id: 703,
+            name: "بوكس قاعدة وغطاء مدبل الاطراف مع حامل",
+            price: 5,
+            badge: "وصول إلى 5 ريال",
+            img: "images/img1.webp"
+        },
+        {
+            id: 704,
+            name: "بوكس قاعدة وغطاء طولي بحبل 15x15x40",
+            price: 2.84,
+            badge: "وصول إلى 2.84 ريال",
+            img: "images/img1.webp"
+        }
+    ],
+    "paper_prints": [
+        { id: 801, name: "ورق تغليف طعام", price: 0.5, badge: "ورق تغليف طعام", img: "images/img1.webp" },
+        { id: 802, name: "أظرف بيضاء مع طباعة", price: 1.5, badge: "أظرف بيضاء مع طباعة", img: "images/img1.webp" },
+        { id: 803, name: "تغريسات كيك بشكل مخصص", price: 0.75, badge: "تغريسات كيك بشكل مخصص", img: "images/img1.webp" }
+    ],
+
+    // قسم "ملف" الخاص
+    "file_prints": [
+        { id: 901, name: "ملف (مجلد | حامل أوراق)", price: 3.5, badge: "وصول إلى 3.5 ريال", img: "images/img1.webp" },
+        { id: 902, name: "ملف فاخر مقاس A4 بارتفاع 2 سم", price: 2.09, badge: "وصول إلى 2.09 ريال", img: "images/img1.webp" }
+    ],
+    "design_services": [
+        {
+            id: 1001,
+            name: "تصميم السوشيال ميديا",
+            price: 0,
+            badge: "تصميم سوشيل ميديا",
+            img: "images/img1.webp"
+        },
+        {
+            id: 1002,
+            name: "خدمة تصميم - اعادة رسم الشعار بجودة عالية",
+            price: 149.99,
+            badge: "تحسين جودة الشعار",
+            img: "images/img1.webp"
+        },
+        {
+            id: 1003,
+            name: "تصميم بنرات ويب سايت",
+            price: 110,
+            badge: "بانرات موقعك بافضل سعر",
+            img: "images/img1.webp"
+        },
+        {
+            id: 1004,
+            name: "تصميم موك أب ثرى دى",
+            price: 0,
+            badge: "نموذج 3D بتصميمك الخاص",
+            img: "images/img1.webp"
+        }
+    ],
+    "wrapping_paper": [
+        { 
+            id: 1101, 
+            name: "ورق تغليف", 
+            price: 2.3, 
+            badge: "ابتداء من 2.3 ريال للحبة", 
+            img: "images/img1.webp" 
+        },
+        { 
+            id: 1102, 
+            name: "ورق تغليف (جريدة)", 
+            price: 2.3, 
+            badge: "ابتداء من 2.3 ريال للحبة", 
+            img: "images/img1.webp" 
+        },
+        { 
+            id: 1103, 
+            name: "ورق تغليف طعام", 
+            price: 2.3, 
+            badge: "ورق تغليف طعام", 
+            img: "images/img1.webp" 
+        }
+    ],
+    "packaging": [
+        { 
+            id: 1201, 
+            name: "حامل اكواب او زجاجات (2 كوب)", 
+            price: 2.09, 
+            badge: "وصول إلى 2.09 ريال", 
+            img: "images/img1.webp" 
+        },
+        { 
+            id: 1202, 
+            name: "قاعدة أكواب القهوة ( 4 كوب )", 
+            price: 1.34, 
+            badge: "وصول إلى 1.34 ريال للحبة", 
+            img: "images/img1.webp" 
+        },
+        { 
+            id: 1203, 
+            name: "اكواب بلاستيك شفافة مع طباعة", 
+            price: 0.37, 
+            badge: "وصول لـ 0.37 ريال للكميات", 
+            img: "images/img1.webp" 
+        },
+        { 
+            id: 1204, 
+            name: "بوكس 10x10x10 سم مع حامل كوب", 
+            price: 1.34, 
+            badge: "وصول إلى 1.34 ريال للحبة", 
+            img: "images/img1.webp" 
+        }
+    ],
+    "gift_cards": [
+        { id: 1301, name: "كرت قص مخصص", price: 0, badge: "كرت اهداء بشكل مخصص", img: "images/img1.webp" },
+        { id: 1302, name: "كرت بخلفية دائرية", price: 0, badge: "طباعة رقمية عالية الدقة", img: "images/img1.webp" },
+        { id: 1303, name: "كرت بخلفية مربع", price: 0, badge: "طباعة رقمية عالية الدقة", img: "images/img1.webp" }
+    ],
+
+    // قسم "بطاقات مطوية" الخاص
+    "folded_cards": [
+        { id: 1401, name: "كرت اهداء مطوي عرضي", price: 85, badge: "ابتدأ من 85 ريال 100 كرت", img: "images/img1.webp" },
+        { id: 1402, name: "كرت اهداء مطوي طولي", price: 85, badge: "ابتدأ من 85 ريال 100 كرت", img: "images/img1.webp" },
+        { id: 1403, name: "كرت اهداء مطوي على شكل قلب", price: 0, badge: "كرت اهداء مطوي شكل قلب", img: "images/img1.webp" }
     ]
 };
 
@@ -321,7 +487,7 @@ const blogPosts = [
         desc: "تعرف على أحدث تصاميم الكروت والهدايا المخصصة التي تجعل مناسباتك لا تُنسى...",
         date: "23 أكتوبر 2024",
         author: "Mena Malak",
-        img: "https://cdn.salla.sa/rDvVQ/1pKR8dtK4Hd9UoYFf1hqwqPQJMn5YFEqyOyJngiZ.jpg"
+        img: "images/img1.webp"
     },
     {
         title: "كيفية اختيار نوع الورق المناسب لمشروعك",
@@ -337,7 +503,7 @@ const blogPosts = [
         desc: "في عالم ريادة الأعمال الحديثة، أصبحت علب التغليف هي الوجه الأول لعلامتك التجارية...",
         date: "21 أكتوبر 2024",
         author: "Mena Malak",
-        img: "https://cdn.salla.sa/rDvVQ/OQxmT3F9y8bS0SrRQOIZVusIvSyRHalGpw0j7rJX.png"
+        img: "images/img1.webp"
     }
 ];
 function renderBlogGrid() {
@@ -370,7 +536,7 @@ function renderBlogGrid() {
 function toggleSubMenu(element) {
     // 1. الوصول للعنصر الأب (الـ li اللي شايل القائمة)
     const parentLi = element.parentElement;
-    
+
     // 2. إغلاق أي قوائم فرعية تانية مفتوحة عشان الزحمة (اختياري)
     document.querySelectorAll('.has-submenu').forEach(item => {
         if (item !== parentLi) {
@@ -380,6 +546,6 @@ function toggleSubMenu(element) {
 
     // 3. إضافة أو حذف كلاس 'open' اللي بيخلي القائمة تظهر
     parentLi.classList.toggle('open');
-    
+
     console.log("Submenu toggled for:", parentLi); // للتأكد في الكونسول إنها اشتغلت
 }

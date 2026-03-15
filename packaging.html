@@ -1,29 +1,51 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طباعة الملصقات والاستيكرات | برنتس</title>
+    <title>التغليف والتعبئة | برنتس</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
+
+    <!-- تنبيه الإضافة (Toast) -->
+    <div id="cart-toast" class="cart-toast-container hidden">
+        <div class="toast-progress"></div>
+        <div class="toast-header">
+            <span class="status-icon"><i class="fas fa-check-circle"></i> تمت الإضافة بنجاح</span>
+            <span class="close-toast" onclick="hideToast()">&times;</span>
+        </div>
+        <div class="toast-body">
+            <img id="toast-product-img" src="" alt="">
+            <div class="toast-info">
+                <h4 id="toast-product-name">اسم المنتج</h4>
+                <span class="toast-price"><span id="toast-product-price">0</span> ر.س</span>
+            </div>
+        </div>
+    </div>
+
     <!-- الهيدر الموحد -->
     <header class="main-header">
         <div class="container header-content">
             <div class="brand-area">
-                <div class="logo-and-text" onclick="location.href='index.html'">
-                    <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
-                        class="logo-img">
+                <div class="logo-and-text" onclick="location.href='index.html'" style="cursor:pointer">
+                    <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes" class="logo-img">
                     <div class="brand-text">
                         <h1>Printnes</h1>
+                        <span>للطباعة والمطبوعات</span>
                     </div>
                 </div>
-                <button class="menu-toggle-btn" onclick="openSideMenu()"><i class="fas fa-bars"></i></button>
+                <button class="menu-toggle-btn" onclick="openSideMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="search-wrapper">
+                <input type="text" placeholder="ابحث عن منتج...">
+                <button><i class="fas fa-search"></i></button>
             </div>
             <div class="user-nav">
+                <div class="nav-item" onclick="openLoginModal()"><i class="far fa-user"></i></div>
                 <div class="nav-item cart" onclick="location.href='cart.html'">
                     <i class="fas fa-shopping-bag"></i> <span id="cart-count">0</span>
                 </div>
@@ -31,9 +53,9 @@
         </div>
     </header>
 
-    <!-- المنيو الجانبية (تأكدي من وجودها في كل صفحة) -->
+    <!-- المنيو الجانبية والغطاء -->
     <div id="menu-overlay" class="menu-overlay hidden" onclick="closeSideMenu()"></div>
-      <aside id="side-menu" class="side-menu shadow-lg">
+    <aside id="side-menu" class="side-menu shadow-lg">
         <div class="menu-header">
             <div class="brand-small">
                 <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes">
@@ -148,120 +170,116 @@
             </ul>
         </div>
     </aside>
-    <!-- البار البرتقالي للقسم -->
+    <!-- البار البرتقالي (Breadcrumbs) -->
     <div class="category-header-bar">
         <div class="container">
             <nav class="breadcrumb-white">
-                <a href="index.html">الرئيسية</a> <span>/</span> <strong>طباعة الملصقات والاستيكرات</strong>
+                <a href="index.html">الرئيسية</a> <span>/</span> <strong>التغليف والتعبئة</strong>
             </nav>
         </div>
     </div>
 
-    <!-- فلاتر الاستيكرات (الأزرار البرتقالية) -->
+    <!-- فلاتر التغليف الفرعية (Pills) كما في الصورة -->
     <section class="sub-categories-pills">
         <div class="container pills-wrapper">
             <button class="pill active">عرض الكل</button>
-            <button class="pill">استيكرات مستطيلة</button>
-            <button class="pill">استيكرات بشكل مخصص</button>
-            <button class="pill">ستيكر شيت</button>
-            <button class="pill">استيكرات 3D</button>
-            <button class="pill">استيكرات دائرية</button>
-            <button class="pill">استيكرات مربعة</button>
+            <button class="pill" onclick="location.href='wrapping-paper.html'">ورق تغليف</button>
+            <button class="pill">سليف الأكواب</button>
+            <button class="pill">حامل الأكواب</button>
+            <button class="pill">سليف علب</button>
+            <button class="pill">تغليف العلب</button>
+            <button class="pill">ليبل ملابس قماشي</button>
+            <button class="pill">شرائط الهدايا</button>
         </div>
     </section>
 
     <main class="container py-4">
         <div class="shop-controls">
-            <h2 class="page-title-main">طباعة الملصقات والاستيكرات</h2>
+            <h2 class="orange-line-title">التغليف والتعبئة</h2>
             <div class="sort-filter">
                 <label>ترتيب</label>
                 <div class="custom-select-wrapper">
-                    <select id="sort-options">
-                        <option value="suggestions" selected>مقترحاتنا</option>
-                        <option value="best-selling">الأكثر مبيعاً</option>
-                        <option value="top-rated">الأعلى تقييماً</option>
-                        <option value="price-high">السعر من الأعلى إلى الأقل</option>
-                        <option value="price-low">السعر من الأقل إلى الأعلى</option>
-                    </select>
+                    <select><option>مقترحاتنا</option><option>الأكثر مبيعاً</option></select>
                 </div>
             </div>
         </div>
 
-        <div class="products-grid" id="stickers-render">
-            <!-- سيتم تحميل الاستيكرات من JS -->
+        <!-- شبكة عرض المنتجات -->
+        <div class="products-grid" id="render-packaging-page">
+            <!-- يتم توليد المنتجات عبر JS -->
         </div>
     </main>
-    <footer class="main-footer">
-        <div class="container footer-inner">
-            <!-- العمود الأول: معلومات الشركة -->
-            <div class="footer-col brand-col">
-                <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
-                    class="footer-logo">
-                <p class="footer-desc">
-                    PRINTNES مؤسسة سعودية معرّفه في وزارة التجارة "معروف" متخصصين في تصنيع المطبوعات وتقديم خدمات
-                    التصميم الفريدة والمتميزة
-                </p>
-                <div class="footer-socials">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
+ <footer class="main-footer">
+            <div class="container footer-inner">
+                <!-- العمود الأول: معلومات الشركة -->
+                <div class="footer-col brand-col">
+                    <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
+                        class="footer-logo">
+                    <p class="footer-desc">
+                        PRINTNES مؤسسة سعودية معرّفه في وزارة التجارة "معروف" متخصصين في تصنيع المطبوعات وتقديم خدمات
+                        التصميم الفريدة والمتميزة
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- العمود الثاني: روابط مهمة -->
+                <div class="footer-col links-col">
+                    <h3>روابط مهمة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">لا تستطيع الوصول للمنتج؟ ( قاموس البحث هنا )</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">للشكاوي والاقتراحات</a></li>
+                        <li><a href="#">سياسة الاستبدال والاسترجاع</a></li>
+                        <li><a href="#">سياسة الطباعة والتصميم</a></li>
+                        <li><a href="#">نظام المكافآت</a></li>
+                    </ul>
+                </div>
+
+                <!-- العمود الثالث: تواصل معنا -->
+                <div class="footer-col contact-col">
+                    <h3>تواصل معنا</h3>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="tel:+966554804857">+966554804857</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="far fa-envelope"></i>
+                        <a href="mailto:support@printnes.co">support@printnes.co</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- العمود الثاني: روابط مهمة -->
-            <div class="footer-col links-col">
-                <h3>روابط مهمة</h3>
-                <ul class="footer-links">
-                    <li><a href="#">سياسة الخصوصية</a></li>
-                    <li><a href="#">لا تستطيع الوصول للمنتج؟ ( قاموس البحث هنا )</a></li>
-                    <li><a href="#">الأسئلة الشائعة</a></li>
-                    <li><a href="#">للشكاوي والاقتراحات</a></li>
-                    <li><a href="#">سياسة الاستبدال والاسترجاع</a></li>
-                    <li><a href="#">سياسة الطباعة والتصميم</a></li>
-                    <li><a href="#">نظام المكافآت</a></li>
-                </ul>
-            </div>
+            <!-- الشريط السفلي (حقوق النشر والدفع) -->
+            <div class="footer-bottom">
+                <div class="container bottom-wrap">
+                    <div class="payment-icons">
+                        <img src="https://img.icons8.com/color/48/visa.png" alt="visa">
+                        <img src="https://img.icons8.com/color/48/mastercard.png" alt="mastercard">
+                        <img src="https://img.icons8.com/color/48/apple-pay.png" alt="apple-pay">
+                        <span class="tabby-tamara">Tabby | Tamara</span>
+                    </div>
 
-            <!-- العمود الثالث: تواصل معنا -->
-            <div class="footer-col contact-col">
-                <h3>تواصل معنا</h3>
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <a href="tel:+966554804857">+966554804857</a>
-                </div>
-                <div class="contact-item">
-                    <i class="far fa-envelope"></i>
-                    <a href="mailto:support@printnes.co">support@printnes.co</a>
+                    <div class="tax-info">
+                        الرقم الضريبي : <span>310595349100003</span>
+                    </div>
+
+                    <div class="copyright">
+                        الحقوق محفوظة 2024 | <a href="#">Printnes</a>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- الشريط السفلي (حقوق النشر والدفع) -->
-        <div class="footer-bottom">
-            <div class="container bottom-wrap">
-                <div class="payment-icons">
-                    <img src="https://img.icons8.com/color/48/visa.png" alt="visa">
-                    <img src="https://img.icons8.com/color/48/mastercard.png" alt="mastercard">
-                    <img src="https://img.icons8.com/color/48/apple-pay.png" alt="apple-pay">
-                    <span class="tabby-tamara">Tabby | Tamara</span>
-                </div>
-
-                <div class="tax-info">
-                    الرقم الضريبي : <span>310595349100003</span>
-                </div>
-
-                <div class="copyright">
-                    الحقوق محفوظة 2024 | <a href="#">Printnes</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
     <script src="script.js"></script>
     <script>
-        window.onload = function () {
-            renderSection("stickers", "stickers-render");
+        window.onload = function() {
+            // تحميل قسم التغليف والتعبئة
+            renderSection("packaging", "render-packaging-page");
             updateCartBadge();
-        }
+        };
     </script>
 </body>
-
 </html>
