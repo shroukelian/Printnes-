@@ -1823,3 +1823,469 @@ footer {
         object-fit: contain !important;
     }
 }
+
+/* --- صفحة تفاصيل المنتج --- */
+.product-details-wrapper {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.product-image-side { flex: 1; }
+.main-img-holder { background: #f9f9f9; border-radius: 15px; padding: 20px; text-align: center; }
+.main-img-holder img { width: 100%; border-radius: 10px; }
+
+.product-info-side { flex: 1.2; text-align: right; }
+.product-info-side h1 { font-size: 28px; color: var(--navy); margin-bottom: 10px; }
+.text-orange { color: #f2c94c; margin-left: 2px; }
+
+.tabby-box { 
+    background: #fdfdfd; border: 1px solid #eee; padding: 15px; 
+    border-radius: 12px; display: flex; align-items: center; gap: 15px; margin: 20px 0;
+}
+
+.options-container { border: 1px solid #eee; border-radius: 15px; overflow: hidden; margin: 30px 0; }
+.options-tabs { display: flex; background: #f9f9f9; }
+.tab-btn { flex: 1; padding: 15px; border: none; background: none; font-weight: bold; cursor: pointer; }
+.tab-btn.active { background: var(--orange); color: #fff; }
+.options-body { padding: 25px; }
+
+.important-notes { background: #fffcf5; border: 1px solid #ffeeba; padding: 20px; border-radius: 12px; margin-top: 30px; }
+.important-notes h4 { color: #856404; margin-bottom: 10px; }
+.important-notes ul { padding-right: 20px; color: #666; font-size: 14px; }
+
+/* البار السفلي الثابت */
+.sticky-footer-bar {
+    position: fixed; bottom: 0; left: 0; width: 100%;
+    background: #fff; box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+    padding: 15px 0; z-index: 1000;
+}
+.bar-content { display: flex; justify-content: space-between; align-items: center; }
+.final-price { font-size: 24px; font-weight: 900; color: var(--navy); display: block; }
+.action-side { display: flex; gap: 20px; align-items: center; }
+
+.quantity-picker { display: flex; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
+.quantity-picker button { padding: 10px 15px; background: #f9f9f9; border: none; cursor: pointer; }
+.quantity-picker input { width: 50px; text-align: center; border: none; outline: none; }
+
+.btn-add-main { 
+    background: var(--orange); color: #fff; border: none; 
+    padding: 15px 50px; border-radius: 12px; font-weight: bold; cursor: pointer; 
+}
+
+@media (max-width: 768px) {
+    .product-details-wrapper { flex-direction: column; }
+    .sticky-footer-bar .container { flex-direction: row; gap: 10px; padding: 10px; }
+    .btn-add-main { padding: 12px 20px; flex: 1; }
+}
+
+
+/* --- تنسيق صفحة التصنيفات الجديدة --- */
+.category-header-bar {
+    background-color: var(--orange);
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.breadcrumb-white {
+    color: #fff;
+    font-size: 14px;
+}
+
+.breadcrumb-white a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.breadcrumb-white strong {
+    font-weight: bold;
+}
+
+.shop-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-title-main {
+    font-size: 24px;
+    color: #333;
+    font-weight: 800;
+}
+
+.sort-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sort-filter select {
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-family: inherit;
+}
+
+/* تحسين شكل كارت المنتج في صفحات العرض */
+.products-grid {
+    padding-bottom: 50px;
+}
+
+
+/* --- فلاتر التصنيفات الفرعية (Pills) --- */
+.sub-categories-pills {
+    padding: 20px 0;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.pills-wrapper {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* سحب بالعرض في الموبايل */
+    padding-bottom: 5px;
+    justify-content: center;
+}
+
+.pills-wrapper::-webkit-scrollbar { display: none; }
+
+.pill {
+    background-color: var(--orange);
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.pill:hover {
+    background-color: var(--navy);
+}
+
+.pill.active {
+    background-color: #333; /* أو أي لون مميز للقسم النشط */
+}
+
+/* ضبط العنوان في صفحة القسم */
+.page-title-main {
+    text-align: right;
+    font-size: 22px;
+    color: #333;
+    font-weight: 800;
+}
+
+/* تفتح بالوقوف (Hover) في الشاشات الكبيرة وبالضغط (Open) في الموبايل */
+@media (min-width: 992px) {
+    .has-submenu:hover > .submenu-list {
+        display: block !important;
+    }
+    .has-submenu:hover .arrow {
+        transform: rotate(180deg);
+    }
+}
+
+/* --- تنسيق صفحة المدونة --- */
+.blog-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.blog-main-content { flex: 3; }
+.blog-sidebar { flex: 1; }
+
+.breadcrumb-simple { margin-bottom: 20px; font-size: 14px; color: #888; }
+.breadcrumb-simple a { color: var(--orange); text-decoration: none; }
+
+/* المقال المميز */
+.featured-post {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.post-img-wrap { position: relative; height: 400px; }
+.post-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+.post-overlay-info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 40px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: #fff;
+    text-align: right;
+}
+
+.post-tag { background: var(--orange); color: #fff; padding: 4px 15px; border-radius: 5px; font-size: 12px; font-weight: bold; }
+.post-overlay-info h2 { font-size: 28px; margin: 15px 0; }
+.post-meta { font-size: 13px; opacity: 0.8; display: flex; gap: 20px; }
+
+/* شبكة المقالات */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.blog-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+
+.blog-card .card-img { height: 200px; overflow: hidden; }
+.blog-card .card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.blog-card .card-body { padding: 20px; text-align: right; }
+.blog-card h3 { font-size: 18px; color: var(--navy); margin: 10px 0; line-height: 1.4; }
+.blog-card p { font-size: 13px; color: #777; line-height: 1.6; height: 42px; overflow: hidden; }
+
+/* السايدبار */
+.sidebar-box { background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 20px; margin-bottom: 30px; }
+.sidebar-box h3 { font-size: 18px; color: var(--navy); margin-bottom: 20px; border-bottom: 2px solid var(--orange); display: inline-block; padding-bottom: 5px; }
+
+.side-cats { list-style: none; padding: 0; }
+.side-cats li { margin-bottom: 10px; }
+.side-cats a { text-decoration: none; color: #555; font-size: 15px; display: flex; justify-content: space-between; }
+.side-cats a.active { color: var(--orange); font-weight: bold; }
+
+.pagination-area { text-align: center; margin-top: 50px; }
+.btn-load-more { background: var(--orange); color: #fff; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+
+@media (max-width: 992px) {
+    .blog-layout { flex-direction: column; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .post-img-wrap { height: 250px; }
+}
+
+/* --- تنسيق صفحة المقال المنفرد --- */
+.article-layout {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.article-body { flex: 2.5; background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+.article-sidebar { flex: 1; }
+
+.article-header h1 { font-size: 32px; color: var(--navy); margin-bottom: 15px; }
+.article-meta { color: #aaa; font-size: 13px; display: flex; gap: 20px; margin-bottom: 30px; }
+
+.featured-image { width: 100%; border-radius: 15px; margin-bottom: 30px; }
+
+.content-rich-text h3 { color: var(--navy); margin: 30px 0 15px; font-size: 22px; border-right: 4px solid var(--orange); padding-right: 15px; }
+.content-rich-text p { color: #555; line-height: 1.9; margin-bottom: 20px; font-size: 16px; }
+
+/* بانر المساعدة الجانبي */
+.help-banner {
+    background: #f8faff;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #eef2f7;
+    position: relative;
+}
+
+.btn-help-wa {
+    background: var(--navy);
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.help-icon { font-size: 60px; color: rgba(31, 58, 120, 0.05); position: absolute; left: 30px; top: 20px; }
+
+.highlight-box { background: #fff9f5; border-right: 5px solid var(--orange); padding: 20px; margin: 20px 0; border-radius: 0 10px 10px 0; }
+
+.article-tags { margin-top: 50px; padding-top: 30px; border-top: 1px solid #eee; display: flex; gap: 15px; flex-wrap: wrap; }
+.article-tags span { background: #f5f5f5; color: #777; padding: 6px 15px; border-radius: 5px; font-size: 12px; }
+
+/* السايدبار */
+.sidebar-widget { background: #fff; padding: 25px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+.sidebar-widget h4 { color: var(--navy); margin-bottom: 20px; font-size: 18px; }
+.related-links { list-style: none; padding: 0; }
+.related-links li { margin-bottom: 12px; }
+.related-links a { text-decoration: none; color: #666; font-size: 14px; transition: 0.3s; }
+.related-links a:hover { color: var(--orange); }
+
+@media (max-width: 992px) {
+    .article-layout { flex-direction: column; }
+    .article-header h1 { font-size: 24px; }
+    .help-banner { flex-direction: column; text-align: center; }
+}
+
+/* =========================================
+   تنسيق المقالات والهيدر للموبايل (روقان 100%)
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* 1. ضبط الهيدر: اللوجو يمين والمنيو على شماله */
+    .header-content {
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        padding: 10px 15px !important;
+    }
+
+    .brand-area {
+        display: flex !important;
+        flex-direction: row !important; /* ترتيب أفقي */
+        align-items: center !important;
+        gap: 8px !important;
+        order: 1 !important;
+    }
+
+    .logo-and-text {
+        order: 1 !important; /* اللوجو أولاً من اليمين */
+    }
+
+    .menu-toggle-btn {
+        order: 2 !important; /* المنيو على يسار اللوجو */
+        margin: 0 !important;
+        font-size: 20px !important;
+    }
+
+    .logo-img { height: 35px !important; }
+    .brand-text h1 { font-size: 18px !important; }
+
+    /* أيقونات الحساب والسلة في أقصى اليسار */
+    .user-nav {
+        order: 2 !important;
+        margin-right: auto !important;
+        gap: 12px !important;
+    }
+
+    /* 2. ضبط المقال (Article Body) */
+    .article-layout {
+        flex-direction: column !important; /* السايدبار ينزل تحت المقال */
+        gap: 20px !important;
+    }
+
+    .article-body {
+        padding: 20px 15px !important;
+        border-radius: 15px !important;
+    }
+
+    .article-header h1 {
+        font-size: 20px !important;
+        line-height: 1.4 !important;
+    }
+
+    /* إجبار كل الصور على البقاء داخل الشاشة */
+    .featured-image, 
+    .content-rich-text img, 
+    .sidebar-widget img, 
+    .help-banner img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        border-radius: 10px !important;
+        object-fit: contain !important;
+    }
+
+    /* 3. بانر المساعدة داخل المقال */
+    .help-banner {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 20px !important;
+    }
+
+    .help-icon {
+        position: static !important;
+        margin-top: 15px !important;
+        font-size: 40px !important;
+    }
+
+    /* 4. السايدبار الجانبي */
+    .article-sidebar {
+        width: 100% !important;
+    }
+
+    .promo-widget img {
+        height: auto !important;
+    }
+
+    /* 5. شريط المسار (Breadcrumbs) */
+    .breadcrumb-simple {
+        font-size: 12px !important;
+        white-space: nowrap;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+}
+
+/* --- تنسيق آراء العملاء --- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.test-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    position: relative;
+}
+
+.test-card .stars {
+    color: #ffc107;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.test-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    min-height: 60px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.user-info strong {
+    font-size: 13px;
+    color: #333;
+}
+
+.user-info img {
+    border-radius: 50%;
+}

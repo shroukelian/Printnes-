@@ -90,11 +90,36 @@
 
         <div class="menu-body">
             <ul class="main-nav-list">
-                <li><a href="#">المدونة</a></li>
-                <li><a href="#">كل المنتجات</a></li>
-                <li><a href="#">عروض البكجات</a></li>
+                <!-- روابط مباشرة -->
+                <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                <li><a href="all-products.html">كل المنتجات</a></li>
+                <li><a href="packages.html">عروض البكجات</a></li>
 
-                <!-- قسم يحتوي على قائمة فرعية (مثل مطبوعات ورقية) -->
+                <!-- قسم الملصقات والاستيكرات (تم ضبطه ليناسب القائمة الجانبية) -->
+                <li class="has-submenu">
+                    <div class="menu-item-flex" onclick="toggleSubMenu(this)">
+                        <span>طباعة الملصقات والاستيكرات</span>
+                        <i class="fas fa-chevron-left arrow"></i>
+                    </div>
+                    <ul class="submenu-list">
+                        <li><a href="stickers.html">عرض الكل</a></li>
+                        <li><a href="#">استيكرات مستطيلة</a></li>
+                        <li><a href="#">قص على الحدود</a></li>
+                        <li><a href="#">ستيكر شيت</a></li>
+                        <li><a href="#">استيكرات 3D</a></li>
+                        <li><a href="#">استيكرات Spot UV</a></li>
+                        <li><a href="#">استيكرات مربعة</a></li>
+                        <li><a href="#">استيكرات دائرية</a></li>
+                        <!-- صورة ترويجية مصغرة داخل المنيو لتعطي روقان -->
+                        <li class="menu-promo-item">
+                            <img src="https://cdn.salla.sa/rDvVQ/OQxmT3F9y8bS0SrRQOIZVusIvSyRHalGpw0j7rJX.png"
+                                alt="Promo">
+                            <p>طباعة ديجيتال عالية الدقة</p>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- قسم مطبوعات ورقية -->
                 <li class="has-submenu">
                     <div class="menu-item-flex" onclick="toggleSubMenu(this)">
                         <span>مطبوعات ورقية</span>
@@ -107,32 +132,71 @@
                         <li><a href="#">كروت شخصية</a></li>
                         <li><a href="#">تاقات</a></li>
                         <li><a href="#">أظرف مراسلات</a></li>
-                        <li><a href="#">ورق تقديم الطعام</a></li>
-                        <li><a href="#">قائمة الطعام MENU</a></li>
                         <li><a href="#">بروشور</a></li>
                         <li><a href="#">فلاير</a></li>
                         <li><a href="#">شهادات شكر</a></li>
                     </ul>
                 </li>
 
+                <!-- قسم البوكسات -->
                 <li class="has-submenu">
                     <div class="menu-item-flex" onclick="toggleSubMenu(this)">
-                        <span>طباعة على البوكسات</span>
+                        <span>الطباعة على البوكسات</span>
                         <i class="fas fa-chevron-left arrow"></i>
                     </div>
                     <ul class="submenu-list">
                         <li><a href="#">بوكس شحن</a></li>
                         <li><a href="#">بوكسات هدايا</a></li>
+                        <li><a href="#">بوكسات توزيعات</a></li>
                     </ul>
                 </li>
 
-                <li><a href="#">طباعة على الأكياس</a></li>
+                <!-- روابط إضافية -->
+                <li><a href="bags.html">طباعة على الأكياس</a></li>
                 <li><a href="#">بطاقات الشكر والاهداء</a></li>
                 <li><a href="#">التغليف والتعبئة</a></li>
                 <li><a href="#">خدمات التصميم</a></li>
+                <li><a href="blog.html"><i class="fas fa-book"></i> المدونة</a></li>
             </ul>
         </div>
     </aside>
+
+    <style>
+        /* إضافات بسيطة للـ CSS لضمان مظهر الصورة داخل المنيو */
+        .menu-promo-item {
+            padding: 15px;
+            text-align: center;
+            background: #f8faff;
+            margin: 10px 20px;
+            border-radius: 12px;
+            border: 1px dashed var(--orange);
+        }
+
+        .menu-promo-item img {
+            width: 80%;
+            max-height: 80px;
+            object-fit: contain;
+            margin-bottom: 5px;
+        }
+
+        .menu-promo-item p {
+            font-size: 11px;
+            color: var(--navy);
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* ضمان ظهور السهم وتحركه بشكل صحيح */
+        .has-submenu.open>.menu-item-flex .arrow {
+            transform: rotate(-90deg);
+            /* السهم يبص لتحت في الـ RTL */
+            color: var(--orange);
+        }
+
+        .submenu-list {
+            transition: all 0.3s ease;
+        }
+    </style>
     <main class="container">
         <!-- البنر الرئيسي -->
         <section class="hero-banner">
@@ -192,25 +256,33 @@
 
         <!-- 1. قسم البوكسات -->
         <section class="product-group">
-            <div class="group-header"><h2>بوكسات</h2> <a href="#">عرض الكل</a></div>
+            <div class="group-header">
+                <h2>بوكسات</h2> <a href="#">عرض الكل</a>
+            </div>
             <div class="products-grid" id="render-boxes"></div>
         </section>
 
         <!-- 2. قسم كراتين الشحن -->
         <section class="product-group">
-            <div class="group-header"><h2>طباعة كراتين شحن</h2> <a href="#">عرض الكل</a></div>
+            <div class="group-header">
+                <h2>طباعة كراتين شحن</h2> <a href="#">عرض الكل</a>
+            </div>
             <div class="products-grid" id="render-cartons"></div>
         </section>
 
         <!-- 3. قسم طباعة الأكياس -->
         <section class="product-group">
-            <div class="group-header"><h2>طباعة على الأكياس</h2> <a href="#">عرض الكل</a></div>
+            <div class="group-header">
+                <h2>طباعة على الأكياس</h2> <a href="#">عرض الكل</a>
+            </div>
             <div class="products-grid" id="render-bags"></div>
         </section>
 
         <!-- 4. قسم التغليف والتعبئة -->
         <section class="product-group">
-            <div class="group-header"><h2>التغليف والتعبئة</h2> <a href="#">عرض الكل</a></div>
+            <div class="group-header">
+                <h2>التغليف والتعبئة</h2> <a href="#">عرض الكل</a>
+            </div>
             <div class="products-grid" id="render-packaging"></div>
         </section>
         <!-- قسم الإحصائيات (لماذا برنتنس ؟!) -->
