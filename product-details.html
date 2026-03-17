@@ -11,7 +11,6 @@
 
 <body class="bg-light">
 
-    <!-- الهيدر الموحد -->
     <header class="main-header">
         <div class="container header-content">
             <div class="brand-area" onclick="location.href='index.html'">
@@ -37,21 +36,18 @@
     </header>
 
     <main class="container py-5">
-        <!-- المسار (Breadcrumbs) -->
         <nav class="breadcrumb">
             <a href="index.html">الرئيسية</a> &gt; <span id="breadcrumb-cat">القسم</span> &gt; <span
                 id="breadcrumb-name">اسم المنتج</span>
         </nav>
 
         <div class="product-details-wrapper">
-            <!-- الجزء الأيمن: الصورة -->
             <div class="product-image-side">
                 <div class="main-img-holder">
                     <img id="main-product-img" src="" alt="">
                 </div>
             </div>
 
-            <!-- الجزء الأيسر: المعلومات والخيارات -->
             <div class="product-info-side">
                 <h1 id="product-title">اسم المنتج</h1>
                 <div class="rating-stars">
@@ -62,23 +58,19 @@
                 </div>
 
                 <div class="short-desc" id="product-short-desc">
-                    <!-- سيتم تحميل الوصف هنا -->
                 </div>
 
-                <!-- تابي (Tabby) -->
                 <div class="tabby-box">
                     <img src="https://img.icons8.com/color/48/tabby.png" width="30">
                     <p>قسم مشترياتك على 4 دفعات بدون فوائد بقيمة <span id="tabby-price">0</span> ر.س</p>
                 </div>
 
-                <!-- خيارات المنتج (Tabs) -->
                 <div class="options-container">
                     <div class="options-tabs">
                         <button class="tab-btn active">خيارات المنتج</button>
                         <button class="tab-btn">تقييمات المنتج</button>
                     </div>
                     <div class="options-body">
-                        <!-- 1. عدد أوجه الطباعة -->
                         <div class="form-group">
                             <label>اختر عدد أوجه الطباعة *</label>
                             <select id="option-sides">
@@ -88,7 +80,6 @@
                             </select>
                         </div>
 
-                        <!-- 2. خدمة التصميم (مع النص التوضيحي) -->
                         <div class="form-group">
                             <label>خدمة التصميم *</label>
                             <small class="label-hint">لديك نموذج تصميم خاص أم تريد خدمة تصميم</small>
@@ -99,7 +90,6 @@
                             </select>
                         </div>
 
-                        <!-- 3. طبقة الحماية -->
                         <div class="form-group">
                             <label>طبقة الحماية *</label>
                             <select id="option-cover">
@@ -110,7 +100,6 @@
                             </select>
                         </div>
 
-                        <!-- 4. مدة التنفيذ -->
                         <div class="form-group">
                             <label>مدة التنفيذ للمنتج *</label>
                             <select id="option-duration">
@@ -120,7 +109,6 @@
                             </select>
                         </div>
 
-                        <!-- 5. تصوير عينة -->
                         <div class="form-group">
                             <label>هل تريد تصوير عينة قبل طباعة الكمية *</label>
                             <select id="option-sample">
@@ -141,7 +129,6 @@
                             </select>
                         </div>
 
-                        <!-- 7. أطراف الكرت -->
                         <div class="form-group">
                             <label>أطراف الكرت *</label>
                             <small class="label-hint">شكل زوايا الكرت النهائية</small>
@@ -154,7 +141,6 @@
                     </div>
                 </div>
 
-                <!-- تنبيهات هامة -->
                 <div class="important-notes">
                     <h4>تنبيهات هامة:</h4>
                     <ul>
@@ -166,14 +152,12 @@
             </div>
         </div>
 
-        <!-- قسم منتجات قد تعجبك -->
         <section class="related-products mt-5">
             <h2 class="sec-title">منتجات قد تعجبك</h2>
             <div class="products-grid" id="related-render"></div>
         </section>
     </main>
 
-    <!-- البار السفلي الثابت (Sticky Add to Cart) -->
     <div class="sticky-footer-bar">
         <div class="container bar-content">
             <div class="price-side">
@@ -193,7 +177,6 @@
 
     <footer class="main-footer">
         <div class="container footer-inner">
-            <!-- العمود الأول: معلومات الشركة -->
             <div class="footer-col brand-col">
                 <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
                     class="footer-logo">
@@ -207,7 +190,6 @@
                 </div>
             </div>
 
-            <!-- العمود الثاني: روابط مهمة -->
             <div class="footer-col links-col">
                 <h3>روابط مهمة</h3>
                 <ul class="footer-links">
@@ -221,7 +203,6 @@
                 </ul>
             </div>
 
-            <!-- العمود الثالث: تواصل معنا -->
             <div class="footer-col contact-col">
                 <h3>تواصل معنا</h3>
                 <div class="contact-item">
@@ -235,7 +216,6 @@
             </div>
         </div>
 
-        <!-- الشريط السفلي (حقوق النشر والدفع) -->
         <div class="footer-bottom">
             <div class="container bottom-wrap">
                 <div class="payment-icons">
@@ -257,10 +237,9 @@
     </footer>
     <script src="script.js"></script>
     <script>
-        // تحميل البيانات عند فتح الصفحة
         window.onload = function () {
             renderProductDetails();
-            renderSection("featured", "related-render"); // عرض منتجات مشابهة
+            renderSection("featured", "related-render"); 
         };
     </script>
 

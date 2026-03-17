@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>برنتس للطباعة والمطبوعات | الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 
 <body>
 
 
-    <!-- الهيدر المطور المظبوط -->
     <header class="main-header">
         <div class="container header-content">
 
-            <!-- الجزء الأيمن: اللوجو والاسم والأيقونة -->
             <div class="brand-area">
                 <div class="logo-and-text" onclick="location.reload()">
                     <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
@@ -27,21 +27,17 @@
                     </div>
                 </div>
 
-                <!-- زر المنيو (الثلاث شرطات) مكانه الآن على يسار الاسم -->
                 <button class="menu-toggle-btn" onclick="openSideMenu()">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
 
-            <!-- شريط البحث في المنتصف -->
             <div class="search-wrapper">
                 <input type="text" placeholder="ادخل كلمة البحث">
                 <button><i class="fas fa-search"></i></button>
             </div>
 
-            <!-- أيقونات المستخدم والسلة في اليسار -->
             <div class="user-nav">
-                <!-- ابحثي عن هذا السطر في الهيدر وعدليه -->
                 <div class="nav-item" onclick="openLoginModal()">
                     <i class="far fa-user"></i>
                     <span>تسجيل الدخول</span>
@@ -54,7 +50,6 @@
         </div>
     </header>
 
-    <!-- تنبيه الإضافة للسلة (Cart Toast) -->
     <div id="cart-toast" class="cart-toast-container hidden">
         <div class="toast-progress"></div>
         <div class="toast-header">
@@ -75,10 +70,8 @@
                 الطلب</button>
         </div>
     </div>
-    <!-- الغطاء الشفاف خلف المنيو -->
     <div id="menu-overlay" class="menu-overlay hidden" onclick="closeSideMenu()"></div>
 
-    <!-- القائمة الجانبية المنسدلة -->
     <aside id="side-menu" class="side-menu shadow-lg">
         <div class="menu-header">
             <div class="brand-small">
@@ -90,12 +83,10 @@
 
         <div class="menu-body">
             <ul class="main-nav-list">
-                <!-- روابط مباشرة -->
                 <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
                 <li><a href="all-products.html">كل المنتجات</a></li>
                 <li><a href="packages.html">عروض البكجات</a></li>
 
-                <!-- قسم الملصقات والاستيكرات -->
                 <li class="has-submenu">
                     <div class="menu-item-flex" onclick="toggleSubMenu(this)">
                         <a href="stickers.html" style="padding:0; flex:1; background:none; color:inherit;">طباعة
@@ -119,7 +110,6 @@
                     </ul>
                 </li>
 
-                <!-- قسم مطبوعات ورقية -->
                 <li class="has-submenu">
                     <div class="menu-item-flex" onclick="toggleSubMenu(this)">
                         <span>مطبوعات ورقية</span>
@@ -139,7 +129,6 @@
                     </ul>
                 </li>
 
-                <!-- قسم البوكسات -->
                 <li class="has-submenu">
                     <div class="menu-item-flex" onclick="toggleSubMenu(this)">
                         <a href="boxes.html" style="padding:0; flex:1; background:none; color:inherit;">الطباعة على
@@ -154,7 +143,6 @@
                     </ul>
                 </li>
 
-                <!-- قسم بطاقات الشكر والاهداء (جديد Dropdown) -->
                 <li class="has-submenu">
                     <div class="menu-item-flex" onclick="toggleSubMenu(this)">
                         <span>بطاقات الشكر والاهداء</span>
@@ -169,7 +157,6 @@
                     </ul>
                 </li>
 
-                <!-- قسم التغليف والتعبئة (جديد Dropdown) -->
                 <li class="has-submenu">
                     <div class="menu-item-flex" onclick="toggleSubMenu(this)">
                         <span>التغليف والتعبئة</span>
@@ -187,7 +174,6 @@
                     </ul>
                 </li>
 
-                <!-- روابط إضافية -->
                 <li><a href="bags.html">طباعة على الأكياس</a></li>
                 <li><a href="design-services.html">خدمات التصميم</a></li>
                 <li><a href="blog.html"><i class="fas fa-book"></i> المدونة</a></li>
@@ -195,7 +181,6 @@
         </div>
     </aside>
     <style>
-        /* إضافات بسيطة للـ CSS لضمان مظهر الصورة داخل المنيو */
         .menu-promo-item {
             padding: 15px;
             text-align: center;
@@ -219,10 +204,8 @@
             margin: 0;
         }
 
-        /* ضمان ظهور السهم وتحركه بشكل صحيح */
         .has-submenu.open>.menu-item-flex .arrow {
             transform: rotate(-90deg);
-            /* السهم يبص لتحت في الـ RTL */
             color: var(--orange);
         }
 
@@ -231,22 +214,49 @@
         }
     </style>
     <main class="container">
-        <!-- البنر الرئيسي -->
-        <section class="hero-banner">
-            <div class="banner-inner">
-                <div class="banner-info">
-                    <h2>مطبوعاتك.. <br><span>بمكان واحد</span></h2>
-                    <p>جودة وتكلفة مناسبة وتوصيل لكافة أنحاء المملكة والخليج</p>
-                    <button class="btn-main" onclick="scrollToSection('products-area')">اطلب الآن</button>
+        <section class="hero-slider-wrapper">
+            <div class="swiper hero-swiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="hero-banner orange-bg">
+                            <div class="banner-inner container">
+                                <div class="banner-info">
+                                    <h2>مطبوعاتك.. <br><span>بمكان واحد</span></h2>
+                                    <p>جودة وتكلفة مناسبة وتوصيل لكافة أنحاء المملكة والخليج</p>
+                                    <button class="btn-main">اطلب الآن</button>
+                                </div>
+                                <div class="banner-photo">
+                                    <img
+                                        src="https://cdn.salla.sa/form-builder/wzsdRwVsUbNJVFVyQS6oTkganoSdKqnn1KADKYWk.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="hero-banner blue-bg">
+                            <div class="banner-inner container">
+                                <div class="banner-info">
+                                    <h2>حلول التغليف <br><span>الأكثر ابتكاراً</span></h2>
+                                    <p>نساعدك في بناء هوية بصرية لمتجرك بأفضل الأسعار</p>
+                                    <button class="btn-main">استعرض المنتجات</button>
+                                </div>
+                                <div class="banner-photo">
+                                    <img src="https://cdn.salla.sa/form-builder/PD53rr1LUNb19Hj3je9ULKSfhYUGg0o3TOBdz1T7.png"
+                                        alt="Hero Image 2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="banner-photo">
-                    <img src="https://cdn.salla.sa/form-builder/wzsdRwVsUbNJVFVyQS6oTkganoSdKqnn1KADKYWk.png"
-                        alt="Hero Image">
-                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </section>
 
-        <!-- الأقسام الرئيسية (الأيقونات الدائرية) المربوطة بالصفحات -->
         <section class="main-categories">
             <div class="section-title-box">
                 <h2>الأقسام الرئيسية</h2>
@@ -254,7 +264,6 @@
             </div>
             <div class="categories-scroll">
 
-                <!-- قسم العروض والبكجات -->
                 <div class="cat-card" onclick="location.href='packages.html'">
                     <div class="circle-img">
                         <img src="https://cdn.salla.sa/form-builder/PD53rr1LUNb19Hj3je9ULKSfhYUGg0o3TOBdz1T7.png">
@@ -262,7 +271,6 @@
                     <h4>العروض والبكجات</h4>
                 </div>
 
-                <!-- قسم طباعة البوكسات -->
                 <div class="cat-card" onclick="location.href='boxes.html'">
                     <div class="circle-img">
                         <img src="https://cdn.salla.sa/form-builder/lnB9NCS8slVsu7xfA6j6Ka37ZIEGCnEu9de9JiR3.png">
@@ -270,7 +278,6 @@
                     <h4>طباعة بوكسات</h4>
                 </div>
 
-                <!-- قسم طباعة الملصقات -->
                 <div class="cat-card" onclick="location.href='stickers.html'">
                     <div class="circle-img">
                         <img src="https://cdn.salla.sa/form-builder/pIbiSL3zp7u4cSqnsrhMcq0D0fQPT2pVkcK72f6g.png">
@@ -278,7 +285,6 @@
                     <h4>طباعة الملصقات</h4>
                 </div>
 
-                <!-- قسم طباعة الأكياس -->
                 <div class="cat-card" onclick="location.href='bags.html'">
                     <div class="circle-img">
                         <img src="https://cdn.salla.sa/form-builder/iVj6NojrRm6YOmBH6CTKeHbUWUfrpoYsK3D8hqB9.png">
@@ -289,18 +295,15 @@
             </div>
         </section>
 
-        <!-- الأكثر مبيعاً - المنتجات -->
         <section class="products-area" id="products-area">
             <div class="area-header">
                 <h2>الأكثر مبيعاً</h2>
                 <a href="#">عرض الكل</a>
             </div>
             <div class="products-grid" id="products-render">
-                <!-- يتم توليدها بواسطة JS -->
             </div>
         </section>
 
-        <!-- 1. قسم البوكسات -->
         <section class="product-group">
             <div class="group-header">
                 <h2>بوكسات</h2> <a href="#">عرض الكل</a>
@@ -308,7 +311,6 @@
             <div class="products-grid" id="render-boxes"></div>
         </section>
 
-        <!-- 2. قسم كراتين الشحن -->
         <section class="product-group">
             <div class="group-header">
                 <h2>طباعة كراتين شحن</h2> <a href="#">عرض الكل</a>
@@ -316,7 +318,6 @@
             <div class="products-grid" id="render-cartons"></div>
         </section>
 
-        <!-- 3. قسم طباعة الأكياس -->
         <section class="product-group">
             <div class="group-header">
                 <h2>طباعة على الأكياس</h2> <a href="#">عرض الكل</a>
@@ -324,14 +325,12 @@
             <div class="products-grid" id="render-bags"></div>
         </section>
 
-        <!-- 4. قسم التغليف والتعبئة -->
         <section class="product-group">
             <div class="group-header">
                 <h2>التغليف والتعبئة</h2> <a href="#">عرض الكل</a>
             </div>
             <div class="products-grid" id="render-packaging"></div>
         </section>
-        <!-- قسم الإحصائيات (لماذا برنتنس ؟!) -->
         <section class="premium-stats">
             <div class="container">
                 <div class="section-header-right">
@@ -376,15 +375,12 @@
 
         <section class="faq-section">
             <div class="container">
-                <!-- عنوان القسم -->
                 <div class="section-title-wrapper">
                     <h2 class="orange-title">الأسئلة الشائعة</h2>
                 </div>
 
-                <!-- شبكة الأسئلة (8 أسئلة كما في الصور) -->
                 <div class="faq-grid">
 
-                    <!-- سؤال 1 -->
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question">
                             <div class="faq-btn"><i class="fas fa-plus"></i></div>
@@ -396,7 +392,6 @@
                         </div>
                     </div>
 
-                    <!-- سؤال 2 -->
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question">
                             <div class="faq-btn"><i class="fas fa-plus"></i></div>
@@ -408,7 +403,6 @@
                         </div>
                     </div>
 
-                    <!-- سؤال 3 -->
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question">
                             <div class="faq-btn"><i class="fas fa-plus"></i></div>
@@ -419,7 +413,6 @@
                         </div>
                     </div>
 
-                    <!-- سؤال 4 -->
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question">
                             <div class="faq-btn"><i class="fas fa-plus"></i></div>
@@ -431,7 +424,6 @@
                         </div>
                     </div>
 
-                    <!-- سؤال 5 -->
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question">
                             <div class="faq-btn"><i class="fas fa-plus"></i></div>
@@ -443,7 +435,6 @@
                         </div>
                     </div>
 
-                    <!-- سؤال 6 -->
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question">
                             <div class="faq-btn"><i class="fas fa-plus"></i></div>
@@ -460,7 +451,6 @@
                         </div>
                     </div>
 
-                    <!-- سؤال 7 -->
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question">
                             <div class="faq-btn"><i class="fas fa-plus"></i></div>
@@ -472,7 +462,6 @@
                         </div>
                     </div>
 
-                    <!-- سؤال 8 -->
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question">
                             <div class="faq-btn"><i class="fas fa-plus"></i></div>
@@ -490,7 +479,6 @@
 
         <footer class="main-footer">
             <div class="container footer-inner">
-                <!-- العمود الأول: معلومات الشركة -->
                 <div class="footer-col brand-col">
                     <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
                         class="footer-logo">
@@ -504,7 +492,6 @@
                     </div>
                 </div>
 
-                <!-- العمود الثاني: روابط مهمة -->
                 <div class="footer-col links-col">
                     <h3>روابط مهمة</h3>
                     <ul class="footer-links">
@@ -518,7 +505,6 @@
                     </ul>
                 </div>
 
-                <!-- العمود الثالث: تواصل معنا -->
                 <div class="footer-col contact-col">
                     <h3>تواصل معنا</h3>
                     <div class="contact-item">
@@ -532,7 +518,6 @@
                 </div>
             </div>
 
-            <!-- الشريط السفلي (حقوق النشر والدفع) -->
             <div class="footer-bottom">
                 <div class="container bottom-wrap">
                     <div class="payment-icons">
@@ -553,7 +538,6 @@
             </div>
         </footer>
 
-        <!-- نافذة تخصيص المنتج (Drawer) -->
         <div id="order-drawer" class="drawer-overlay hidden">
             <div class="drawer-box">
                 <span class="close-drawer" onclick="closeDrawer()">&times;</span>
@@ -575,13 +559,10 @@
                 <button class="btn-add-cart" onclick="confirmAddToCart()">تأكيد وإضافة للسلة</button>
             </div>
         </div>
-        <!-- نافذة تسجيل الدخول (Login Modal) -->
         <div id="login-modal" class="modal-overlay hidden">
             <div class="login-box">
-                <!-- زر الإغلاق -->
                 <span class="close-login" onclick="closeLoginModal()">&times;</span>
 
-                <!-- أيقونة المستخدم العلوية -->
                 <div class="user-avatar-circle">
                     <i class="far fa-user"></i>
                 </div>
@@ -596,12 +577,10 @@
 
                     <button class="btn-login-main" onclick="handleLogin()">دخول</button>
 
-                    <!-- فاصل -->
                     <div class="login-divider">
                         <span>أو سجل دخولك من خلال</span>
                     </div>
 
-                    <!-- أيقونات التواصل الاجتماعي -->
                     <div class="social-login-grid">
                         <a href="#" class="social-btn"><i class="fab fa-apple"></i></a>
                         <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
@@ -610,8 +589,8 @@
                 </div>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="script.js"></script>
-
 </body>
 
 </html>

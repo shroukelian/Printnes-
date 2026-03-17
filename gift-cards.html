@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- الهيدر الموحد -->
     <header class="main-header">
         <div class="container header-content">
             <div class="brand-area">
@@ -45,7 +44,6 @@
     </div>
  <div id="menu-overlay" class="menu-overlay hidden" onclick="closeSideMenu()"></div>
 
-    <!-- القائمة الجانبية المنسدلة -->
     <aside id="side-menu" class="side-menu shadow-lg">
         <div class="menu-header">
             <div class="brand-small">
@@ -57,12 +55,10 @@
 
         <div class="menu-body">
             <ul class="main-nav-list">
-                <!-- روابط مباشرة -->
                 <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
                 <li><a href="all-products.html">كل المنتجات</a></li>
                 <li><a href="packages.html">عروض البكجات</a></li>
 
-                <!-- قسم الملصقات والاستيكرات -->
                 <li class="has-submenu">
                     <div class="menu-item-flex" onclick="toggleSubMenu(this)">
                         <a href="stickers.html" style="padding:0; flex:1; background:none; color:inherit;">طباعة
@@ -86,7 +82,6 @@
                     </ul>
                 </li>
 
-                <!-- قسم مطبوعات ورقية -->
                 <li class="has-submenu">
                     <div class="menu-item-flex" onclick="toggleSubMenu(this)">
                         <span>مطبوعات ورقية</span>
@@ -106,7 +101,6 @@
                     </ul>
                 </li>
 
-                <!-- قسم البوكسات -->
                 <li class="has-submenu">
                     <div class="menu-item-flex" onclick="toggleSubMenu(this)">
                         <a href="boxes.html" style="padding:0; flex:1; background:none; color:inherit;">الطباعة على
@@ -121,7 +115,6 @@
                     </ul>
                 </li>
 
-                <!-- قسم بطاقات الشكر والاهداء (جديد Dropdown) -->
                 <li class="has-submenu">
                     <div class="menu-item-flex" onclick="toggleSubMenu(this)">
                         <span>بطاقات الشكر والاهداء</span>
@@ -136,7 +129,6 @@
                     </ul>
                 </li>
 
-                <!-- قسم التغليف والتعبئة (جديد Dropdown) -->
                 <li class="has-submenu">
                     <div class="menu-item-flex" onclick="toggleSubMenu(this)">
                         <span>التغليف والتعبئة</span>
@@ -154,7 +146,6 @@
                     </ul>
                 </li>
 
-                <!-- روابط إضافية -->
                 <li><a href="bags.html">طباعة على الأكياس</a></li>
                 <li><a href="design-services.html">خدمات التصميم</a></li>
                 <li><a href="blog.html"><i class="fas fa-book"></i> المدونة</a></li>
@@ -162,7 +153,6 @@
         </div>
     </aside>
 
-    <!-- البار البرتقالي (Breadcrumbs) -->
     <div class="category-header-bar">
         <div class="container">
             <nav class="breadcrumb-white">
@@ -171,7 +161,6 @@
         </div>
     </div>
 
-    <!-- فلاتر البطاقات (Pills) كما في الصورة -->
     <section class="sub-categories-pills">
         <div class="container pills-wrapper">
             <button class="pill active">عرض الكل</button>
@@ -192,12 +181,10 @@
         </div>
 
         <div class="products-grid" id="render-gift-cards">
-            <!-- يتم توليد المنتجات عبر JS -->
         </div>
     </main>
   <footer class="main-footer">
             <div class="container footer-inner">
-                <!-- العمود الأول: معلومات الشركة -->
                 <div class="footer-col brand-col">
                     <img src="https://cdn.salla.sa/rDvVQ/cOd3EfWfrDP0n64aE7wrEEXzWprxjvx6kvvsO0aR.png" alt="Printnes"
                         class="footer-logo">
@@ -211,7 +198,6 @@
                     </div>
                 </div>
 
-                <!-- العمود الثاني: روابط مهمة -->
                 <div class="footer-col links-col">
                     <h3>روابط مهمة</h3>
                     <ul class="footer-links">
@@ -225,7 +211,6 @@
                     </ul>
                 </div>
 
-                <!-- العمود الثالث: تواصل معنا -->
                 <div class="footer-col contact-col">
                     <h3>تواصل معنا</h3>
                     <div class="contact-item">
@@ -239,7 +224,6 @@
                 </div>
             </div>
 
-            <!-- الشريط السفلي (حقوق النشر والدفع) -->
             <div class="footer-bottom">
                 <div class="container bottom-wrap">
                     <div class="payment-icons">

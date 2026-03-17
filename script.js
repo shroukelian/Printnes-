@@ -1,4 +1,3 @@
-// --- 1. بيانات جميع المنتجات والأقسام ---
 const storeData = {
     "featured": [
         { id: 1, name: "بوكس مثلث 6.8x7.5x11", price: 0.01, badge: "وصول إلى 0.73 ريال", img: "images/img1.webp" },
@@ -214,7 +213,6 @@ const storeData = {
         { id: 1303, name: "كرت بخلفية مربع", price: 0, badge: "طباعة رقمية عالية الدقة", img: "images/img1.webp" }
     ],
 
-    // قسم "بطاقات مطوية" الخاص
     "folded_cards": [
         { id: 1401, name: "كرت اهداء مطوي عرضي", price: 85, badge: "ابتدأ من 85 ريال 100 كرت", img: "images/img1.webp" },
         { id: 1402, name: "كرت اهداء مطوي طولي", price: 85, badge: "ابتدأ من 85 ريال 100 كرت", img: "images/img1.webp" },
@@ -225,20 +223,16 @@ const storeData = {
 let cart = JSON.parse(localStorage.getItem('printnesCart')) || [];
 let activeProduct = { name: "", price: 0, total: 0 };
 
-// تحديث العداد في الهيدر
 function updateCartBadge() {
     const badge = document.getElementById('cart-count');
     if (badge) badge.innerText = cart.length;
 }
 
-// فتح صفحة السلة
 function openFullCart() {
     window.location.href = 'cart.html';
 }
 
-// إضافة منتج للسلة فوراً
 function addToCartDirectly(id, category) {
-    // البحث عن المنتج في القسم المحدد أو في كل الأقسام إذا لم يحدد القسم
     let product = null;
     if (category && storeData[category]) {
         product = storeData[category].find(p => p.id === id);
@@ -264,7 +258,6 @@ function addToCartDirectly(id, category) {
     showCartToast(product);
 }
 
-// إظهار التنبيه فوق (Toast)
 function showCartToast(p) {
     const toast = document.getElementById('cart-toast');
     if (!toast) return;
@@ -281,7 +274,6 @@ function hideToast() {
     if (toast) toast.classList.add('hidden');
 }
 
-// --- 3. وظائف عرض المنتجات ---
 function renderSection(categoryKey, targetId) {
     const grid = document.getElementById(targetId);
     if (!grid) return;
@@ -302,7 +294,6 @@ function renderSection(categoryKey, targetId) {
     `).join('');
 }
 
-// --- 4. وظائف صفحة السلة (cart.html) ---
 function renderCartPage() {
     const emptyView = document.getElementById('empty-cart-view');
     const fullView = document.getElementById('full-cart-view');
@@ -355,13 +346,11 @@ function openSideMenu() {
     const menu = document.getElementById('side-menu');
     const overlay = document.getElementById('menu-overlay');
 
-    // تأكدي إن العنصر موجود قبل ما نغير الكلاسات بتاعته
     if (menu && overlay) {
         menu.classList.add('active');
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     } else {
-        // لو مش موجود هيطبع لك في الكونسول إيه اللي ناقص بالظبط
         console.error("خطأ: لم يتم العثور على side-menu أو menu-overlay في هذه الصفحة!");
     }
 }
@@ -396,14 +385,11 @@ function scrollToSection(id) {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
-// --- 6. وظائف صفحة التفاصيل ---
 
-// وظيفة لتحويل الزبون لصفحة التفاصيل عند الضغط على أي منتج
 function goToDetails(id) {
     window.location.href = `product-details.html?id=${id}`;
 }
 
-// وظيفة عرض بيانات المنتج المختار في صفحة التفاصيل
 function renderProductDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = parseInt(urlParams.get('id'));
@@ -416,7 +402,6 @@ function renderProductDetails() {
 
     if (!product) return;
 
-    // ملء البيانات في صفحة التفاصيل (تأكدي من مطابقة IDs في HTML التفاصيل)
     const titleEl = document.getElementById('product-title');
     const breadcrumbEl = document.getElementById('breadcrumb-name');
     const imgEl = document.getElementById('main-product-img');
@@ -437,9 +422,7 @@ function changeQty(val) {
     if (current + val >= 1) input.value = current + val;
 }
 
-// --- 7. التشغيل عند التحميل ---
 window.onload = function () {
-    // عرض المنتجات في الأقسام المتاحة بالصفحة الرئيسية
     renderSection("featured", "products-render");
     renderSection("boxes", "render-boxes");
     renderSection("cartons", "render-cartons");
@@ -448,7 +431,6 @@ window.onload = function () {
 
     updateCartBadge();
 
-    // فحص أي صفحة مفتوحة حالياً
     const path = window.location.pathname;
     if (path.includes('cart.html')) {
         renderCartPage();
@@ -458,7 +440,6 @@ window.onload = function () {
     }
 };
 
-// وظيفة فتح درج التخصيص (Drawer) - أضفتها لضمان عدم حدوث خطأ إذا طلبتِها لاحقاً
 function openOrderDrawer(name, price) {
     let foundImg = "";
     for (let cat in storeData) {
@@ -479,7 +460,6 @@ function closeDrawer() {
 }
 
 
-// بيانات مقالات المدونة
 const blogPosts = [
     {
         title: "طباعة كروت وهدايا للمناسبات الخاصة",
@@ -532,27 +512,22 @@ function renderBlogGrid() {
     `).join('');
 }
 
-// وظيفة فتح وإغلاق القوائم الفرعية (Submenus)
 function toggleSubMenu(element) {
-    // 1. الوصول للعنصر الأب (الـ li اللي شايل القائمة)
     const parentLi = element.parentElement;
 
-    // 2. إغلاق أي قوائم فرعية تانية مفتوحة عشان الزحمة (اختياري)
     document.querySelectorAll('.has-submenu').forEach(item => {
         if (item !== parentLi) {
             item.classList.remove('open');
         }
     });
 
-    // 3. إضافة أو حذف كلاس 'open' اللي بيخلي القائمة تظهر
     parentLi.classList.toggle('open');
 
-    console.log("Submenu toggled for:", parentLi); // للتأكد في الكونسول إنها اشتغلت
+    console.log("Submenu toggled for:", parentLi); 
 }
 
 
 function addToCartFromDetails() {
-    // جلب القيم من كل الخيارات الجديدة
     const design = document.getElementById('option-design').value;
     const sides = document.getElementById('option-sides').value;
     const cover = document.getElementById('option-cover').value;
@@ -560,7 +535,6 @@ function addToCartFromDetails() {
     const corners = document.getElementById('option-corners').value;
     const quantity = document.getElementById('prod-qty').value;
 
-    // التأكد من أن المستخدم اختار الحقول الإلزامية
     if (!paperType || !corners) {
         alert("يرجى اختيار النوع وأطراف الكرت أولاً");
         return;
@@ -584,6 +558,27 @@ function addToCartFromDetails() {
     localStorage.setItem('printnesCart', JSON.stringify(cart));
     updateCartBadge();
 
-    // إظهار التنبيه (Toast)
     showCartToast(item);
 }
+
+// أولاً: تحميل مكتبة Swiper برمجياً (تأكدي من وضع الرابط في HTML أفضل)
+// ثانياً: كود التشغيل
+const swiper = new Swiper('.hero-swiper', {
+    loop: true, // تكرار لا نهائي
+    autoplay: {
+        delay: 5000, // تغيير كل 5 ثواني
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    effect: 'fade', // تأثير التلاشي (اختياري، يمكنك حذفه للحركة العادية)
+    fadeEffect: {
+        crossFade: true
+    },
+});
