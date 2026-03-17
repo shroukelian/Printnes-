@@ -219,35 +219,24 @@
                 <div class="swiper-wrapper">
 
                     <div class="swiper-slide">
-                        <div class="hero-banner orange-bg">
-                            <div class="banner-inner container">
-                                <div class="banner-info">
-                                    <h2>مطبوعاتك.. <br><span>بمكان واحد</span></h2>
-                                    <p>جودة وتكلفة مناسبة وتوصيل لكافة أنحاء المملكة والخليج</p>
-                                    <button class="btn-main">اطلب الآن</button>
-                                </div>
-                                <div class="banner-photo">
-                                    <img
-                                        src="https://cdn.salla.sa/form-builder/wzsdRwVsUbNJVFVyQS6oTkganoSdKqnn1KADKYWk.png">
-                                </div>
-                            </div>
-                        </div>
+                        <a href="#">
+                            <img src="https://cdn.salla.sa/form-builder/wzsdRwVsUbNJVFVyQS6oTkganoSdKqnn1KADKYWk.png"
+                                alt="بانر 1" class="full-banner-img">
+                        </a>
                     </div>
 
                     <div class="swiper-slide">
-                        <div class="hero-banner blue-bg">
-                            <div class="banner-inner container">
-                                <div class="banner-info">
-                                    <h2>حلول التغليف <br><span>الأكثر ابتكاراً</span></h2>
-                                    <p>نساعدك في بناء هوية بصرية لمتجرك بأفضل الأسعار</p>
-                                    <button class="btn-main">استعرض المنتجات</button>
-                                </div>
-                                <div class="banner-photo">
-                                    <img src="https://cdn.salla.sa/form-builder/PD53rr1LUNb19Hj3je9ULKSfhYUGg0o3TOBdz1T7.png"
-                                        alt="Hero Image 2">
-                                </div>
-                            </div>
-                        </div>
+                        <a href="#">
+                            <img src="https://cdn.salla.sa/form-builder/A0XG5v5RJTUUeuVfuYGf71WMOTP39IAvdDsmF3Sl.png"
+                                alt="بانر 2" class="full-banner-img">
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <img src="https://cdn.salla.sa/form-builder/dHO6KuaEQvL0pmgVStKz0wItK3vD2MZWpIsu4ehi.png"
+                                alt="بانر 3" class="full-banner-img">
+                        </a>
                     </div>
 
                 </div>
@@ -295,12 +284,133 @@
             </div>
         </section>
 
-        <section class="products-area" id="products-area">
-            <div class="area-header">
-                <h2>الأكثر مبيعاً</h2>
-                <a href="#">عرض الكل</a>
+        <section class="products-slider-section container">
+            <div class="section-header">
+                <div class="right-side">
+                    <h2 class="section-title">الأكثر مبيعاً</h2>
+                </div>
+                <div class="left-side">
+                    <a href="all-products.html" class="view-all">عرض الكل</a>
+                    <!-- أزرار التحكم الخاصة بالسلايدر -->
+                    <div class="slider-controls">
+                        <div class="swiper-button-prev-prod"><i class="fas fa-chevron-right"></i></div>
+                        <div class="swiper-button-next-prod"><i class="fas fa-chevron-left"></i></div>
+                    </div>
+                </div>
             </div>
-            <div class="products-grid" id="products-render">
+
+            <div class="swiper most-selling-swiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-badge">ابتداءً من 70 ريال 100 كرت</div>
+                            <div class="wish-icon"><i class="far fa-heart"></i></div>
+                            <img src="images/img1.webp"
+                                alt="منتج">
+                            <div class="p-info">
+                                <h3>بكج انطلاقة المشروع</h3>
+                                <p class="p-desc">ورق تغليف + كيس + ستيكرات + كروت شكر</p>
+                                <span class="p-price">199 ر.س</span>
+                                <button class="add-to-cart-orange" onclick="addToCartDirectly(2, 'featured')">إضافة
+                                    للسلة</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-badge">وصول إلى 1.34 ريال</div>
+                            <div class="wish-icon"><i class="far fa-heart"></i></div>
+                            <img src="images/img1.webp"
+                                alt="منتج">
+                            <div class="p-info">
+                                <h3>بوكس كامل بإغلاق 20x20x6</h3>
+                                <p class="p-desc">بوكس ورق مقوى مع طباعة عالية الجودة</p>
+                                <span class="p-price">0.01 ر.س</span>
+                                <button class="add-to-cart-orange" onclick="addToCartDirectly(1, 'featured')">إضافة
+                                    للسلة</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-badge">وصول إلى 1.34 ريال</div>
+                            <div class="wish-icon"><i class="far fa-heart"></i></div>
+                            <img src="images/img1.webp"
+                                alt="منتج">
+                            <div class="p-info">
+                                <h3>بوكس كامل بإغلاق 20x20x6</h3>
+                                <p class="p-desc">بوكس ورق مقوى مع طباعة عالية الجودة</p>
+                                <span class="p-price">0.01 ر.س</span>
+                                <button class="add-to-cart-orange" onclick="addToCartDirectly(1, 'featured')">إضافة
+                                    للسلة</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-badge">وصول إلى 1.34 ريال</div>
+                            <div class="wish-icon"><i class="far fa-heart"></i></div>
+                            <img src="images/img1.webp"
+                                alt="منتج">
+                            <div class="p-info">
+                                <h3>بوكس كامل بإغلاق 20x20x6</h3>
+                                <p class="p-desc">بوكس ورق مقوى مع طباعة عالية الجودة</p>
+                                <span class="p-price">0.01 ر.س</span>
+                                <button class="add-to-cart-orange" onclick="addToCartDirectly(1, 'featured')">إضافة
+                                    للسلة</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-badge">وصول إلى 1.34 ريال</div>
+                            <div class="wish-icon"><i class="far fa-heart"></i></div>
+                            <img src="images/img1.webp"
+                                alt="منتج">
+                            <div class="p-info">
+                                <h3>بوكس كامل بإغلاق 20x20x6</h3>
+                                <p class="p-desc">بوكس ورق مقوى مع طباعة عالية الجودة</p>
+                                <span class="p-price">0.01 ر.س</span>
+                                <button class="add-to-cart-orange" onclick="addToCartDirectly(1, 'featured')">إضافة
+                                    للسلة</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-badge">وصول إلى 1.34 ريال</div>
+                            <div class="wish-icon"><i class="far fa-heart"></i></div>
+                            <img src="images/img1.webp"
+                                alt="منتج">
+                            <div class="p-info">
+                                <h3>بوكس كامل بإغلاق 20x20x6</h3>
+                                <p class="p-desc">بوكس ورق مقوى مع طباعة عالية الجودة</p>
+                                <span class="p-price">0.01 ر.س</span>
+                                <button class="add-to-cart-orange" onclick="addToCartDirectly(1, 'featured')">إضافة
+                                    للسلة</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-badge">وصول إلى 1.34 ريال</div>
+                            <div class="wish-icon"><i class="far fa-heart"></i></div>
+                            <img src="images/img1.webp"
+                                alt="منتج">
+                            <div class="p-info">
+                                <h3>بوكس كامل بإغلاق 20x20x6</h3>
+                                <p class="p-desc">بوكس ورق مقوى مع طباعة عالية الجودة</p>
+                                <span class="p-price">0.01 ر.س</span>
+                                <button class="add-to-cart-orange" onclick="addToCartDirectly(1, 'featured')">إضافة
+                                    للسلة</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -588,6 +698,14 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="whatsapp-fixed">
+            <a href="https://wa.me/966554804857" target="_blank" class="wa-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <div class="wa-tooltip">راسلنا على الواتساب</div>
+
         </div>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="script.js"></script>

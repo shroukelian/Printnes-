@@ -561,12 +561,11 @@ function addToCartFromDetails() {
     showCartToast(item);
 }
 
-// أولاً: تحميل مكتبة Swiper برمجياً (تأكدي من وضع الرابط في HTML أفضل)
-// ثانياً: كود التشغيل
+
 const swiper = new Swiper('.hero-swiper', {
-    loop: true, // تكرار لا نهائي
+    loop: true,
     autoplay: {
-        delay: 5000, // تغيير كل 5 ثواني
+        delay: 5000,
         disableOnInteraction: false,
     },
     pagination: {
@@ -577,8 +576,31 @@ const swiper = new Swiper('.hero-swiper', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
-    effect: 'fade', // تأثير التلاشي (اختياري، يمكنك حذفه للحركة العادية)
+    effect: 'fade', 
     fadeEffect: {
         crossFade: true
     },
+});
+
+
+const mostSellingSwiper = new Swiper('.most-selling-swiper', {
+    slidesPerView: 1.2,        
+    spaceBetween: 20,      
+    loop: true,              
+    
+    autoplay: {
+        delay: 3000,           
+        disableOnInteraction: false, 
+    },
+
+    navigation: {
+        nextEl: '.swiper-button-next-prod',
+        prevEl: '.swiper-button-prev-prod',
+    },
+
+    breakpoints: {
+        768: {
+            slidesPerView: 4, 
+        }
+    }
 });
