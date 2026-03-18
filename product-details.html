@@ -79,14 +79,14 @@
                                 <option value="2">وجهين</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label>خدمة التصميم *</label>
                             <small class="label-hint">لديك نموذج تصميم خاص أم تريد خدمة تصميم</small>
                             <select id="option-design" onchange="calculateFinalPrice()">
                                 <option value="">اختر</option>
-                                <option value="0">لدي تصميم جاهز</option>
-                                <option value="50">أحتاج خدمة تصميم (+50 ر.س)</option>
+                                <option value="0">رفع تصميمي الخاص</option>
+                                <option value="46">لدي تصميم يحتاج تعديل (+46 ر.س)</option>
+                                <option value="250">طلب خدمة تصميم (+250 ر.س)</option>
                             </select>
                         </div>
 
@@ -239,7 +239,7 @@
     <script>
         window.onload = function () {
             renderProductDetails();
-            renderSection("featured", "related-render"); 
+            renderSection("featured", "related-render");
         };
     </script>
 

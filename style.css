@@ -3491,3 +3491,13 @@ footer {
     transform: scale(1.1) rotate(360deg);
     transition: 0.5s ease;
 }
+
+#option-design {
+    border: 2px solid #eee;
+    font-weight: 600;
+    color: #444;
+}
+
+#option-design option {
+    padding: 10px;
+}
