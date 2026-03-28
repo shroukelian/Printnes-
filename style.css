@@ -3501,3 +3501,85 @@ footer {
 #option-design option {
     padding: 10px;
 }
+
+
+.help-center-card {
+    background-color: #f8faff; 
+    border: 1px solid #eef2f7;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.help-content-wrap {
+    position: relative;
+    z-index: 2; 
+}
+
+.help-text h3 {
+    color: #1f3a78;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.help-text h3 i {
+    font-size: 24px;
+}
+
+.help-text p {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.btn-click-here {
+    background-color: #1f3a78;
+    color: #fff;
+    padding: 12px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-block;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(31, 58, 120, 0.2);
+}
+
+.btn-click-here:hover {
+    background-color: var(--orange);
+    transform: translateY(-3px);
+}
+
+.bg-logo-fade {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 150px;
+    opacity: 0.05;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .help-center-card {
+        padding: 25px 15px;
+    }
+    .help-text h2 {
+        font-size: 18px;
+    }
+    .bg-logo-fade {
+        width: 100px;
+    }
+}
